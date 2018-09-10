@@ -1,0 +1,100 @@
+﻿{
+  "items": [
+    {
+      "title": "泰山",
+      "link": "http://www.mount-tai.com.cn/",
+      "description": "<p style=\"font-family:仿体;font-weight:bold\">世界文化与自然双重遗产，国家5A级旅游景区</p> <p><a href=\"http://www.mount-tai.com.cn\" title=\"泰山官网\"><img src=\"./images/泰山.jpg\" width=\"225\" height=\"165\" alt=\"泰山官网\" /></a></p><p style=\"font-family:微软雅黑\">泰山又名岱山、岱宗、岱岳、东岳、泰岳，位于山东省中部，隶属于泰安市，绵亘于泰安、济南、淄博三市之间，总面积24200公顷。主峰玉皇顶海拔1545米，气势雄伟磅礴，有“五岳之首”、“五岳之长”、五岳之尊、“天下第一山”之称。</p> ",
+      "tags": "",
+      "latitude": "36.26961787",
+      "longitude": "117.0846965"
+    },
+    {
+      "title": "黄山",
+      "link": "http://www.chinahuangshan.gov.cn/",
+      "description": "<p style=\"font-family:仿体;font-weight:bold\">世界文化与自然双重遗产，国家5A级旅游景区</p> <p><a href=\"http://www.chinahuangshan.gov.cn\" title=\"黄山官网\"><img src=\"./images/黄山.jpg\" width=\"200\" height=\"124\" alt=\"黄山官网\" /></a></p><p style=\"font-family:微软雅黑\">黄山位于安徽省南部黄山市境内，有72峰，主峰莲花峰海拔1864米，与光明顶、天都峰并称三大黄山主峰，为36大峰之一。黄山是安徽旅游的标志，是中国十大风景名胜唯一的山岳风光。</p> ",
+      "tags": "",
+      "latitude": "30.1356984953",
+      "longitude": "118.1594541135"
+    },
+    {
+      "title": "峨眉山─乐山",
+      "link": "http://www.ems517.com/",
+      "description": "<p style=\"font-family:仿体;font-weight:bold\">中国佛教名山，世界文化与自然双遗产</p> <p><a href=\"http://www.ems517.com\" title=\"峨眉山旅游网\"><img src=\"./images/峨眉山-乐山.jpg\" width=\"225\" height=\"115.5\" alt=\"峨眉山旅游网\" /></a></p><p style=\"font-family:微软雅黑\">峨眉山-乐山大佛是以峨眉山为主体的国家重点风景名胜区。峨眉山（Mount Emei）山头位于中国四川省乐山市峨眉山市境内，是中国“四大佛教名山”之一，地势陡峭，风景秀丽，素有“峨眉天下秀”之称，山上的万佛顶最高，海拔3099。</p> ",
+      "tags": "",
+      "latitude": "29.54523257",
+      "longitude": "103.349865"
+    },
+    {
+      "title": "庐山",
+      "link": "http://www.china-lushan.com/",
+      "description": "<p style=\"font-family:仿体;font-weight:bold\">世界文化遗产，国家5A级旅游景区</p> <p><a href=\"http://www.china-lushan.com\" title=\"庐山官网\"><img src=\"./images/庐山.jpg\" width=\"180\" height=\"268.8\" alt=\"庐山官网\" /></a></p><p style=\"font-family:微软雅黑\">庐山，又名匡山、匡庐，位于江西省九江市庐山市境内。东偎婺源、鄱阳湖，南靠滕王阁，西邻京九铁路大通脉，北枕滔滔长江。长约25千米，宽约10千米，主峰汉阳峰，海拔1474米。</p> ",
+      "tags": "",
+      "latitude": "29.55822063",
+      "longitude": "115.98958865"
+    },
+    {
+      "title": "武夷山",
+      "link": "http://www.wys.gov.cn/",
+      "description": "<p style=\"font-family:仿体;font-weight:bold\">世界文化与自然双重遗产，国家5A级旅游景区</p> <p><a href=\"http://www.wys.gov.cn\" title=\"武夷山官网\"><img src=\"./images/武夷山.jpg\" width=\"243\" height=\"116\" alt=\"武夷山官网\" /></a></p><p style=\"font-family:微软雅黑\">武夷山位于江西与福建西北部两省交界处，武夷山脉北段东南麓总面积999.75平方公里，是中国著名的风景旅游区和避暑胜地。 属典型的丹霞地貌。武夷山是三教名山。</p><p>自秦汉以来，武夷山就为羽流禅家栖息之地，留下了不少宫观、道院和庵堂故址。武夷山还曾是儒家学者倡道讲学之地。</p><p>武夷山自然保护区，是地球同纬度地区保护最好、物种最丰富的生态系统 ，拥有2527种植物物种，近5000种野生动物。</p> ",
+      "tags": "",
+      "latitude": "27.65978108",
+      "longitude": "117.95473204"
+    },
+    {
+      "title": "三清山",
+      "link": "http://sqs.sqs.gov.cn/",
+      "description": "<p style=\"font-family:仿体;font-weight:bold\">世界自然遗产，世界地质公园</p> <p><a href=\"http://sqs.sqs.gov.cn\" title=\"三清山官网\"><img src=\"./images/三清山.jpg\" width=\"225\" height=\"149.5\" alt=\"三清山官网\" /></a></p><p style=\"font-family:微软雅黑\">三清山风景名胜区位于江西省上饶市东北部，因玉京、玉虚、玉华“三峰峻拔，如道教三清列坐其巅”故名。三清山风景区总面积756.6平方公里，其中主峰玉京峰海拔1819.9米，为最高峰，也是信江的源头。</p><p>世界遗产大会认为：三清山风景名胜区在一个相对较小的区域内展示了独特花岗岩石柱与山峰，丰富的花岗岩造型石与多种植被、远近变化的景观及震撼人心的气候奇观相结合，创造了世界上独一无二的景观美学效果。</p> ",
+      "tags": "",
+      "latitude": "28.91025872",
+      "longitude": "118.07059863"
+    },
+    {
+      "title": "五台山",
+      "link": "http://sqs.sqs.gov.cn/",
+      "description": "<p style=\"font-family:仿体;font-weight:bold\">世界文化遗产，国家自然与文化双遗产</p> <p><a href=\"http://www.chinawts.com\" title=\"五台山官网\"><img src=\"./images/五台山.jpg\" width=\"240\" height=\"180\" alt=\"五台山官网\" /></a></p><p style=\"font-family:微软雅黑\">五台山位于山西省忻州市，总面积592.88平方千米。五台山是中华十大名山，中国佛教四大名山，世界五大佛教圣地。</p>",
+      "tags": "",
+      "latitude": "38.96799409",
+      "longitude": "113.58417655"
+    },
+    {
+      "title": "天山",
+      "link": "",
+      "description": "<p style=\"font-family:仿体;font-weight:bold\">世界自然遗产，世界七大山系之一</p> <p><img src=\"./images/天山.jpg\" width=\"234\" height=\"157.5\" alt=\"天山\" /></p><p style=\"font-family:微软雅黑\">新疆天山，即天山山脉的东段，也是天山山脉的主体部分。天山山区涉及新疆南疆的喀什地区、克孜勒苏柯尔克孜自治州、阿克苏地区、巴音郭楞蒙古自治州、吐鲁番市、哈密市以及北疆的伊犁哈萨克自治州、博尔塔拉蒙古自治州、石河子市、昌吉回族自治州、乌鲁木齐市等多个地州市。</p><p>新疆天山具有极好的自然奇观，将反差巨大的炎热与寒冷、干旱与湿润、荒凉与秀美、壮观与精致奇妙地汇集在一起，展现了独特的自然美；典型的山地垂直自然带谱、南北坡景观差异和植物多样性，体现了帕米尔—天山山地生物生态演进过程，也是中亚山地众多珍稀濒危物种、特有种的最重要栖息地，突出代表了这一区域由暖湿植物区系逐步被现代旱生的地中海植物区系所替代的生物进化过程。</p>",
+      "tags": "",
+      "latitude": "43.90349711",
+      "longitude": "88.10597176"
+    },
+    {
+      "title": "青城山",
+      "link": "http://www.djy517.com/",
+      "description": "<p style=\"font-family:仿体;font-weight:bold\">世界文化遗产，国家5A级旅游景区</p> <p><a href=\"http://www.djy517.com\" title=\"都江堰旅游门户网\"><img src=\"./images/青城山.jpg\" width=\"230.4\" height=\"125.2\" alt=\"都江堰旅游门户网\" /></a></p><p style=\"font-family:微软雅黑\">青城山（Mount Qingcheng）位于四川省成都市都江堰市西南，东距成都市区68公里，处于都江堰水利工程西南10公里处。景区面积200平方千米，最高峰老君阁海拔1260米。</p><p>青城山是全球道教天师道圣地，中国四大道教名山之一，五大仙山之一，中国道教发祥地之一，成都十景之一。</p>",
+      "tags": "",
+      "latitude": "30.90797596",
+      "longitude": "103.56084589"
+    },
+    {
+      "title": "武当山",
+      "link": "http://ly.wudangshan.gov.cn/",
+      "description": "<p style=\"font-family:仿体;font-weight:bold\">世界文化遗产，国家5A级旅游区</p> <p><a href=\"http://ly.wudangshan.gov.cn\" title=\"武当山旅游官方门户网\"><img src=\"./images/武当山.jpg\" width=\"243\" height=\"153\" alt=\"武当山旅游官方门户网\" /></a></p><p style=\"font-family:微软雅黑\">武当山位于湖北西北部十堰市丹江口市境内。东接闻名古城襄阳市，西靠车城十堰市 ，南望原始森林神农架，北临高峡平湖 丹江口水库。</p><p>武当山，中国道教圣地，又名太和山、谢罗山、参上山、仙室山，古有“太岳”、“玄岳”、“大岳”之称。武当山有古建筑53处，建筑面积2.7万平方米，建筑遗址9处，占地面积20多万平方米，全山保存各类文物5035件。</p>",
+      "tags": "",
+      "latitude": "32.50740497",
+      "longitude": "111.09140858"
+    },
+    {
+      "title": "武陵源",
+      "link": "http://www.hnzjj.com/",
+      "description": "<p style=\"font-family:仿体;font-weight:bold\">世界自然遗产，国家5A级旅游区</p> <p><a href=\"http://www.hnzjj.com\" title=\"张家界·武陵源旅游官方网站\"><img src=\"./images/武陵源.jpg\" width=\"225\" height=\"141\" alt=\"张家界·武陵源旅游官方网站\" /></a></p><p style=\"font-family:微软雅黑\">武陵源风景名胜区地处位于湖南省西北部的武陵山脉中段桑植和慈利两县交界处，隶属张家界市。武陵源由四大风景区组成，分别为张家界国家森林公园和张家界国家地质公园、索溪峪、天子山、杨家界三个自然保护区。</p><p>武陵源具有比较原始的生态系统，有罕见的砂岩峰林地貌景观，有3,000多座形状奇异的山峰、800多条溪涧，也有岩溶洞穴、瀑布群，并有天然森林</p>",
+      "tags": "",
+      "latitude": "29.34800953",
+      "longitude": "110.43785391"
+    },
+    {
+      "title": "登封“天地之中”历史建筑群",
+      "link": "http://www.songshancn.com/",
+      "description": "<p style=\"font-family:仿体;font-weight:bold\">世界文化遗产</p> <p><a href=\"http://www.songshancn.com\"title=\"中国嵩山景区官网\"><img src=\"./images/嵩山.jpg\" width=\"234.6\" height=\"180\" alt=\"中国嵩山景区官网\" /></a></p><p style=\"font-family:微软雅黑\">登封“天地之中”指河南省登封市的一批具有悠久历史的文物古迹，包括周公测景台和观星台、嵩岳寺塔、太室阙和中岳庙、少室阙、启母阙、嵩阳书院、会善寺、少林寺建筑群（包括常住院、塔林和初祖庵）等8处11项优秀历史建筑。该建筑群中的各建筑建成时间从汉至清，时间跨度达2,000多年。</p>",
+      "tags": "",
+      "latitude": "34.52091141",
+      "longitude": "112.99785898"
+    }
+  ]
+}
