@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>地图交换</title>
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.5.0/css/ol.css" type="text/css">
+    <script src="https://openlayers.org/en/v4.5.0/build/ol.js" type="text/javascript"></script>
+    <style>
+        #mapDiv {
+            width: 49%;
+            height: 80%;
+            border: 1px solid #0094ff;
+            top: 12%;
+            position: absolute;
+        }
+
+        #mapDiv2 {
+            width: 49%;
+            height: 80%;
+            border: 1px solid #0094ff;
+            top: 12%;
+            left: 50%;
+            position: absolute;
+        }
+        #bt1{
+            width: 8%;
+            height: 3%;
+            left: 42%;
+            top:3%;
+            position: absolute;
+            font-family: 华文新魏;
+            font-size: 120%;
+            background-color: azure;
+        }
+        #bt2{
+            width: 8%;
+            height: 3%;
+            left: 50%;
+            top:3%;
+            position: absolute;
+            font-family: 华文新魏;
+            font-size: 120%;
+            background-color: azure;
+        }
+    </style>
+    <script>
+        function swapMap1() {
+            map1.setTarget('mapDiv2'); //将map1装入mapDiv2中
+            map2.setTarget('mapDiv');
+        }
+        function swapMap2() {
+                map1.setTarget("mapDiv");
+                map2.setTarget("mapDiv2");
+        }
+    </script>
+</head>
+<body>
+<div id="mapDiv"></div>
+<div id="mapDiv2"></div>
+<script>
+    //创建第一个地图
+    var map1=new ol.Map({
+        layers:[
+            new ol.layer.Tile({source:new ol.source.OSM()})
+        ], //记得打逗号
+       view:new ol.View({
+           center: [11680880, 4535823],
+           zoom: 4
+       }),
+        target:'mapDiv'
+    });
+    //创建第一个地图
+    var map2=new ol.Map({
+        layers:[
+            new ol.layer.Tile({source:new ol.source.OSM()})
+        ], //记得打逗号
+        view:new ol.View({
+            center: [11680880, 4535823],
+            zoom: 5
+        }),
+        target:'mapDiv2'
+    });
+</script>
+<button id="bt1" onclick="swapMap1()">交换地图</button>
+<button id="bt2" onclick="swapMap2()">还原</button>
+</body>
+</html>
