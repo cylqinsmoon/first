@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>按键触发事件</title>
+    <script>
+        function key_event() {
+            var e = event ? event : window.event;
+            if(window.event.ctrlKey)
+                alert("这是CTRL键")
+            // if(e.shiftKey)
+            //     alert("这是shift键")
+            if(e.keyCode==32)
+                alert("这是空格键")
+            if((e.altKey)&&(e.keyCode==65)&&(e.shiftKey)) //组合键只能有一个用keycode表示
+            {
+                alert("这是“alt+shift+a”组合键，点击确定跳转网页");
+                window.location.href="open layer/Linkage.html";
+            }
+        }
+        document.onkeydown=key_event;
+    </script>
+    <style>
+        #tip{
+            width: 20%;
+            height: 10%;
+            left: 40%;
+            padding: 0 0px;
+            top: 45%;
+            position: absolute;
+            text-align: center;
+            line-height: 50px;
+            font-family: 华文中宋;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<p id="tip">
+    尝试按下ctrl键、空格键、alt+shift+a组合键
+</p>
+</body>
+</html>
