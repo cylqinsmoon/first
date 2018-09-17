@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>利用srcElement记录位置</title>
+    <script>
+        var lastSection=null;
+        function select(element) {
+            var e,r,c;
+            if(element==null){
+                e=event.srcElement;  //获取body元素的原始记录
+            }else {
+                e=element;
+            }
+            if(e.tagName=="TD"){
+                c=findcell(e);
+                if(c!=null){
+                    if(lastSection!=null){
+                        deselectroworcell(window.lastSection);
+                    }
+                    selectroworcell(c);
+                    lastSection=c;
+                }
+            }
+            window.event.cancelBubble=true; //取消冒泡语句，防止向下一个外层对象冒泡
+        }
+        // table1.onclick=select;
+        //用于判断选中位置是否是单元格
+        function findcell(e) {
+            if(e.tagName=="TD"){
+                return e;
+            }else if(e.tagName=="BODY"){
+                return null;
+            }else {
+                return findcell(e.parentElement);
+            }
+        }
+        //将前景色和背景色恢复正常
+        function deselectroworcell(r) {
+            r.runtimeStyle.backgroundColor="";
+            r.runtimeStyle.color="";
+        }
+        //改变单元格前景色和背景色
+        function  selectroworcell(r) {
+            r.runtimeStyle.backgroundColor="yellow";
+            r.runtimeStyle.color="red";
+        }
+    </script>
+    <style>
+        #tb{
+            width: 20%;
+            height: 10%;
+            left: 40%;
+            padding: 0 0px;
+            top: 45%;
+            position: absolute;
+            text-align: center;
+            line-height: 50px;
+            font-family: 楷书;
+            font-size: 25px;
+
+        }
+    </style>
+</head>
+<body>
+<table border="1" name="table1" onclick="select()" id="tb">
+    <tr>
+        <td>a</td>
+        <td>b</td>
+    </tr>
+    <tr>
+        <td>c</td>
+        <td>d</td>
+    </tr>
+</table>
+</body>
+</html>
