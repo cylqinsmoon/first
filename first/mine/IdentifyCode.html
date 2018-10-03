@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生成数字验证码</title>
+    <style>
+        #TAB{
+            border: 2px solid #ffad03;
+            top: 20%;
+            left: 35%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<table id="TAB">
+    <tr id="result" style="background-color: #caffe8">
+        <!--让第一行第一个单元格占两个位置-->
+        <th colspan="2">
+        &nbsp;&nbsp;产生的验证码：
+        </th>
+    </tr>
+    <tr>
+        <td>请输入要产生的验证码位数：</td>
+        <td><input name="form1" type="number" id="form1"> </td>
+    </tr>
+    <tr>
+        <!--align让按钮左右居中，上下居中用valign-->
+        <td align="center" colspan="2">
+        <input name="Submit" type="button" value="生成" onclick="PrintOut()" style="width:20%">
+        </td>
+    </tr>
+</table>
+<script>
+    function RandomNum(InputNumb){
+        var result="";
+        for (i=0;i<parseInt(InputNumb);i++)
+        result+=(parseInt(Math.random()*10)).toString();
+        return result;
+    }
+    function PrintOut() {
+        result.innerHTML="&nbsp;&nbsp;产生的验证码："+RandomNum(form1.value);
+    }
+</script>
+</body>
+</html>

@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>åˆ©ç”¨srcElementè®°å½•ä½ç½®</title>
+    <title>ÀûÓÃsrcElement¼ÇÂ¼Î»ÖÃ</title>
     <script>
+	//¸Ã¹¦ÄÜIEä¯ÀÀÆ÷ÔËĞĞ
         var lastSection=null;
         function select(element) {
             var e,r,c;
             if(element==null){
-                e=event.srcElement;  //è·å–bodyå…ƒç´ çš„åŸå§‹è®°å½•
+                e=event.srcElement;  //»ñÈ¡bodyÔªËØµÄÔ­Ê¼¼ÇÂ¼
             }else {
                 e=element;
             }
@@ -22,10 +23,10 @@
                     lastSection=c;
                 }
             }
-            window.event.cancelBubble=true; //å–æ¶ˆå†’æ³¡è¯­å¥ï¼Œé˜²æ­¢å‘ä¸‹ä¸€ä¸ªå¤–å±‚å¯¹è±¡å†’æ³¡
+            window.event.cancelBubble=true; //È¡ÏûÃ°ÅİÓï¾ä£¬·ÀÖ¹ÏòÏÂÒ»¸öÍâ²ã¶ÔÏóÃ°Åİ
         }
         // table1.onclick=select;
-        //ç”¨äºåˆ¤æ–­é€‰ä¸­ä½ç½®æ˜¯å¦æ˜¯å•å…ƒæ ¼
+        //ÓÃÓÚÅĞ¶ÏÑ¡ÖĞÎ»ÖÃÊÇ·ñÊÇµ¥Ôª¸ñ
         function findcell(e) {
             if(e.tagName=="TD"){
                 return e;
@@ -35,12 +36,12 @@
                 return findcell(e.parentElement);
             }
         }
-        //å°†å‰æ™¯è‰²å’ŒèƒŒæ™¯è‰²æ¢å¤æ­£å¸¸
+        //½«Ç°¾°É«ºÍ±³¾°É«»Ö¸´Õı³£
         function deselectroworcell(r) {
             r.runtimeStyle.backgroundColor="";
             r.runtimeStyle.color="";
         }
-        //æ”¹å˜å•å…ƒæ ¼å‰æ™¯è‰²å’ŒèƒŒæ™¯è‰²
+        //¸Ä±äµ¥Ôª¸ñÇ°¾°É«ºÍ±³¾°É«
         function  selectroworcell(r) {
             r.runtimeStyle.backgroundColor="yellow";
             r.runtimeStyle.color="red";
@@ -56,7 +57,7 @@
             position: absolute;
             text-align: center;
             line-height: 50px;
-            font-family: æ¥·ä¹¦;
+            font-family: ¿¬Êé;
             font-size: 25px;
 
         }
