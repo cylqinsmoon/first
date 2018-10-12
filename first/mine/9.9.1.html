@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标感应程序</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+<div id="text" onmouseover="MouseTip()"></div>
+<script>
+    function MouseTip() {
+        alert(new Date().toLocaleTimeString());
+    }
+</script>
+<script type="text/babel">
+    var textStyle={
+        fontSize:50,
+        fontFamily:"华文新魏",
+        left:520,
+        top:300,
+        position:"absolute"
+    };
+    const element=(
+        <div style={textStyle}>
+            <p>这是一段文字</p>
+        </div>
+    )
+    ReactDOM.render
+    (
+        element,
+        document.getElementById('text')
+    )
+</script>
+</body>
+</html>
