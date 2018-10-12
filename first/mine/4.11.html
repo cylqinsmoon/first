@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MSAVI的计算</title>
+    <script>
+        function MSAVI(b1,b2) {
+            // result=((2*float(b2)+1)-sqrt((2*float(b2)+1)^2-8*(float(b2)-float(b1))))/2
+            var result=((2*b2+1-Math.sqrt(Math.pow((2*b2+1),2)-8*(b2-b1))))/2
+            return result;
+        }
+        function printOut()
+        {
+            alert("MSAVI的值为："+MSAVI(form1.value,form2.value));
+        }
+    </script>
+    <style>
+        #BT{
+            width: 20%;
+            height: 10%;
+            left: 40%;
+            padding: 0 0px;
+            top: 45%;
+            position: absolute;
+            text-align: center;
+            line-height: 50px;
+            font-family: 华文中宋;
+            font-size: 20px;
+
+        }
+        #RED{
+            left: 35%;
+            padding: 0 0px;
+            top: 30%;
+            position: absolute;
+           font-family: 微软雅黑;
+        }
+        #NIR{
+            left: 35%;
+            padding: 0 0px;
+            top: 35%;
+            position: absolute;
+            font-family: 微软雅黑;
+        }
+    </style>
+</head>
+<body>
+<p id="RED">
+   &nbsp&nbsp&nbsp&nbsp输入红光波段数值：<input type="number" id="form1">
+</p>
+<p id="NIR">
+    输入近红外波段数值：<input type="number" id="form2">
+</p>
+<button onclick="printOut()"id="BT">MSAVI值</button>
+</body>
+</html>

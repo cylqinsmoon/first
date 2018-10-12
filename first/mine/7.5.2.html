@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7.5.2E-mail正则式</title>
+    <!--<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+     生产环境中不建议使用
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #ShowResult
+        {
+            left: 37%;
+            top: 44%;
+            position: absolute;
+            font-family: 方正姚体;
+            font-size: x-large;
+        }
+        #INPUT
+        {
+            left: 37%;
+            top: 35%;;
+            font-family: 方正舒体;
+            position: absolute;
+            font-weight: bold;
+            font-size:larger;
+        }
+    </style>
+</head>
+<body>
+<div id="INPUT">
+    <p>
+        请输入电子邮箱：<input type="text" id="email"/>&nbsp<button onclick="matchEmail()">提交</button>
+    </p>
+</div>
+<div id="ShowResult"></div>
+<!--<form onsubmit="return matchEmail();">
+    请输入电子邮箱：<input type="text" id="email"/>
+    <input type="submit" value="提交"/>
+</form>-->
+<script type="text/babel">
+    function matchEmail() {
+        //var reg=/w+([-+.]w+)*@w+([-.]w+)*.w+([-.]w+)*/;
+        var reg=/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+        //var em="cylqinsmoon@outlook.com";
+        var em=document.getElementById("email").value;
+        var result=reg.test(em);
+        ReactDOM.render
+        (
+            <p>
+                {
+                    result ?"Succeed！" :"This isn't a right email address！"
+                }
+            </p>,
+            document.getElementById('ShowResult')
+        )
+    }
+</script>
+</body>
+</html>
