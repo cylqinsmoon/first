@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript事件处理</title>
+    <style>
+        #page
+        {
+            left: 30%;
+            top:20%;
+            position: absolute;
+            height: 60%;
+            width: 40%;
+            background-color: #eef0fa;
+            border:3px solid #d11d22;
+        }
+        #img
+        {
+            width:60%;
+            height: 80%;
+            left: 20%;
+            top:10%;
+            position: absolute;
+        }
+        #inputBOX
+        {
+            top:5%;
+            left: 2%;
+            position: absolute;
+        }
+        #testtxt
+        {
+            left: 1%;
+            top:30%;
+            position: absolute;
+            width: 20%;
+            height: 60%;
+            border: 2px solid #bebebe;
+            background-color: #ffe279;
+        }
+    </style>
+</head>
+<body onbeforeunload="pclose()">
+<div>
+    <table id="inputBOX">
+        <form onreset="return AllReset">
+            <tr>
+                <td>
+                        <input  id="txt1" name="textfield" type="text" value="JavaScript技术大全"/>
+                        <select name="menu1" onchange="Fcolor()">
+                            <option value="black">黑</option>
+                            <option value="pink">粉</option>
+                            <option value="blue">蓝</option>
+                            <option value="green">绿</option>
+                            <option value="red">红</option>
+                            <option value="yellow">黄</option>
+                            <option value="purple">紫</option>
+                        </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!--正则表达式限制只能输入中文-->
+                    用&nbsp户&nbsp名：<input id="txt2" onkeyup="this.value=this.value.replace(/[^\u4E00-\u9FA5]/g,'')"  />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    英&nbsp文&nbsp名：<input id="txt3" onkeydown="Clavier(1)"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp年&nbsp&nbsp龄&nbsp&nbsp：<input id="txt4" onkeydown="Clavier(0)"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <button type="submit" id="sub">提交</button>
+                    <button type="reset">重置</button>
+                    <button id="print">打印</button>
+                </td>
+            </tr>
+        </form>
+    </table>
+</div>
+<div id="page"  onmousedown="f1()" onmouseup="f2()">
+    <img src="素材/test.png" id="img" onmouseover="visible(this,1)"onmouseout="visible(this,0)" />
+</div>
+<div id="testtxt" oncopy="return unCopy()"></div>
+<script>
+    function f1(event)
+    {
+        var e=window.event;
+        var obj=e.target;
+        obj.style.backgroundColor='#000000';
+    }
+    function f2(event)
+    {
+        var e=window.event;
+        var obj=e.target;
+        obj.style.backgroundColor='#fdffff';
+    }
+    var x = document.getElementById("img");
+    function visible(cursor,i)
+    {
+        if(i==0)
+            cursor.style.opacity=0.5;//设置透明度
+        else
+            cursor.style.opacity=1;
+    }
+    function Refurbish()
+    {
+        var e = event ? event : window.event;
+        if(e.keyCode==32)
+        {
+            location.reload();//刷新页面
+        }
+    }
+    document.onkeypress=Refurbish;
+    function MovePlace()
+    {
+        var x=window.event.x;
+        var y=window.event.y;
+        window.status="X："+x+"   "+"Y："+y;
+    }
+    document.onmousemove=MovePlace;
+</script>
+<script>
+    var T=true;
+    //控制键盘输入，但无法控制输入法
+    function Clavier(n)
+    {
+        var k=window.event.keyCode;
+        if(n==1)
+        {
+            if (k>=65&&k<=90)//字母
+                T=true;
+            else
+                T=false;
+        }
+        else if(n==0)
+        {
+            if((k>=48&&k<=57)||(k>=96&&k<=105))//数字
+            {
+                T=true;
+                if(k&&window.event.shiftKey)
+                    T=false;
+            }
+            else
+                T=false;
+        }
+        if((k==37)||(k==39)||(k==8)||(k==46))//分别对应+=、_-、Backspace、~`
+            T=true;
+        if(T==false)
+            return window.event.returnValue=T;
+    }
+    //关闭页面提示框
+    window.addEventListener("beforeunload", function(event) {
+        event.returnValue = "我在这写点东西...";
+    });
+    //IE会弹出此对话框
+    function pclose() {
+        alert("See you！")
+    }
+    //固定浏览器大小，该事件在chrome中无效
+    function fastness() {
+        window.resizeTo(1000,700);
+    }
+    document.body.onresize=fastness;
+    document.body.onload=fastness;
+    //利用焦点捕获函数
+    function txtfocus(event) {
+        var e=window.event||event;
+        var obj=e.srcElement;
+        obj.style.backgroundColor="#CAFFE8";
+    }
+    function txtblur(event) {
+        var e=window.event||event;
+        var obj=e.srcElement;
+        obj.style.backgroundColor="#fdffff"
+    }
+    var y=document.getElementById("txt2");
+    y.addEventListener("focus",txtfocus);
+    y.addEventListener("blur",txtblur);
+    var y1=document.getElementById("txt3");
+    y1.addEventListener("focus",txtfocus);
+    y1.addEventListener("blur",txtblur);
+    var y2=document.getElementById("txt4");
+    y2.addEventListener("focus",txtfocus);
+    y2.addEventListener("blur",txtblur);
+    //改变输入框字体颜色
+    function Fcolor()
+    {
+        var e=window.event||event;
+        var obj=e.srcElement;
+        txt1.style.color=obj.options[obj.selectedIndex].value;
+    }
+    function AllReset() {
+        if(window.confirm("是否进行重置？"))
+            return true;
+        else
+            return false;
+    }
+    function AllSubmit()
+    {
+        var f = document.forms[0]; //获取表单DOM
+        var elements = f.elements; //获取所有的控件数组
+        var T=true;
+        var e=window.event||event;
+        var obj=e.srcElement;
+        for (var i=1;i<=elements.length;i++)//按指定名称遍历表单中的控件
+        {
+            if(eval("txt"+i).value=="")//判断当前控件的值是否为空
+            {
+                T=false;
+                break;
+            }
+        }
+        if(!T)
+        {
+            alert("提交信息不允许为空");
+        }
+        return T;
+    }
+    //打印控件内容
+    document.getElementById("print").addEventListener("click",printout);
+    function printout()
+    {
+        var f = document.forms[0]; //获取表单DOM
+        var elements = f.elements; //获取所有的控件数组
+        var e=window.event||event;
+        var obj=e.srcElement;
+        for (var i=1;i<=elements.length;i++)
+        {
+            document.getElementById("testtxt").innerHTML += eval("txt"+i).value+"<br>"
+        }
+    }
+    document.getElementById("sub").addEventListener("click",AllSubmit);
+    function unCopy() {
+        alert("该内容不可被复制！")
+        return false;
+    }
+    /*window.onbeforeunload = function (event) {
+        var event = event || window.event;
+// 兼容IE8和Firefox 4之前的版本
+        if (event) {
+            event.returnValue = "确定要关闭窗口吗？";
+        }
+// Chrome, Safari, Firefox 4+, Opera 12+ , IE 9+
+        return '确定要关闭窗口吗>现代浏览器？';
+    }*/
+    //关于鼠标移动改变透明度有更简单的CSS方法
+</script>
+</body>
+</html>
