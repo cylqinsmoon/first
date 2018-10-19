@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document文档对象</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <style>
+        #LINK
+        {
+            font-family: 方正舒体;
+            font-size: x-large;
+            /*left: 38%;
+            top:35%;
+            position: absolute;*/
+            text-align: center;
+            max-width: max-content;
+            margin: 0 auto;
+        }
+        #GetUrl
+        {
+            font-family: 华文隶书;
+            font-size: larger;
+            max-width: max-content;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #ThisUrl
+        {
+            font-family: 华文隶书;
+            font-size: larger;
+            max-width: max-content;
+            margin:0 auto;
+            text-align: center;
+        }
+        #dynamicBT
+        {
+            font-family: 华文隶书;
+            font-size: larger;
+            max-width: max-content;
+            margin:0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="LINK"></div>
+<div id="GetUrl">
+   <p>
+       输入要跳转的页面的URL：
+       <input id="titleName" type="text" value="有效的URL地址" style="font-style: oblique;font-weight: lighter">
+       <button  onclick="setURL()">跳转</button>&nbsp;
+       <button onclick="clearIPT()">清空输入框</button>
+   </p>
+</div>
+<div id="ThisUrl"></div>
+<div  id="dynamicBT">
+    <p></p>
+    <button onclick="addBUTTON()">添加一个新按钮</button>&nbsp;
+    <!--<button onclick="creatDOM()" style="font-family: 新宋体;font-size: large">打开新文档</button>-->
+</div>
+<script>
+    document.getElementById("ThisUrl").innerHTML="当前页面的URL：&nbsp;"+document.URL;
+   //document.write("当前页面的URL：&nbsp;"+document.URL);
+   function setURL()
+   {
+       var t= document.getElementById("titleName").value;
+       /*document.URL=t;
+       var u=document.URL;
+       return u;*/
+       var URL=window.location.href;
+       console.log(URL);
+       window.open(t);//打开新窗口
+       //window.location.href=t;
+   }
+   function clearIPT() {
+       document.getElementById("titleName").value="";
+   }
+</script>
+<script>
+    //利用焦点捕获函数
+    function txtfocus(event) {
+        var e=window.event||event;
+        var obj=e.srcElement;
+        obj.style.backgroundColor="#CAFFE8";
+    }
+    function txtblur(event) {
+        var e=window.event||event;
+        var obj=e.srcElement;
+        obj.style.backgroundColor="#fdffff"
+    }
+    var x=document.getElementById("titleName");
+    x.addEventListener("focus",txtfocus);
+    x.addEventListener("blur",txtblur);
+</script>
+<script>
+    function addBUTTON() {
+        var bt=document.createElement("input");
+        bt.value="打开新文档";
+        bt.type="button";
+        bt.onclick=function(){creatDOM();}//注意动态添加的按钮函数的绑定方式
+        document.getElementById("dynamicBT").appendChild(bt);
+    }
+</script>
+<script type="text/babel">
+    var t=document.getElementById("titleName");
+    var ArrayColor=new Array("#ed0617","#ed9b13","#ede500","#0aed0b","#00fffd","#2e15d1","#a413ff");
+    var ArrayTitle=new Array("标题1","标题2","标题3","标题4","标题5","标题6","标题7","标题8","标题9","标题10");
+    function creatDOM()
+    {
+        document.open();
+        for(var i=0;i<ArrayTitle.length;i++)
+        {
+            document.write("<p style='max-width: max-content;margin: auto '>"+ArrayTitle[i]+"</p>")
+        }
+        for(var i=0;i<ArrayColor.length;i++)
+        {
+            document.write("<p style='max-width: max-content;margin: auto'>"+ArrayColor[i]+"</p>")
+        }
+        document.write("<p></p>&nbsp;<p style='max-width: max-content;margin: auto'>" +
+            "<button style='font: large 黑体' onclick='javascript: history.go(0);'>返回</button></p>")
+        document.close()
+    }
+    class Change extends React.Component{
+        constructor(props)
+        {
+            super(props);
+            this.state={data:new Date()};
+        }
+        componentDidMount()
+        {
+            this.timerID=setInterval(
+                ()=>this.turncolors(),
+                1000
+            );
+            this.timerID=setInterval(
+                ()=>this.dynamicTitle(),
+                1000
+            );
+        }
+        componentWillUnmunt(){
+            clearInterval(this.timerID);
+        }
+        turncolors()
+        {
+            var n=parseInt(Math.random()*10);
+            var m=parseInt(Math.random()*10);
+            if(n===(ArrayColor.length-1))
+                n=0;
+            if(m==(ArrayColor.length-1))
+                m=1;
+            document.bgColor=ArrayColor[n];//设置页面背景颜色
+            document.fgColor=ArrayColor[m];//设置页面文字颜色
+        }
+        dynamicTitle()
+        {
+            var n2=parseInt(Math.random()*10);
+            document.title=ArrayTitle[n2];
+        }
+        render() {
+            return (
+                <div>
+                    <a href="https://reactjs.org/" target="_blank">React官网</a>
+                    <p>ReactState与背景颜色的改变</p>
+                    <p>该文档的创建日期：{document.fileCreatedDate}</p>
+                    <p>该文档最后修改时间：{document.lastModified}</p>
+                    <p>document对象当前状态:&nbsp;{document.readyState}</p>
+                </div>
+            );
+        }
+
+    }
+   /* const element=(
+        <div>
+            <a href="https://reactjs.org/" target="_blank">React官网</a>
+            <p>
+                ReactState与背景颜色的改变
+            </p>
+        </div>
+    )*/
+    ReactDOM.render
+    (
+        <Change />,
+        document.getElementById("LINK")
+    )
+   /* ReactDOM.render
+    (
+        element,
+        document.getElementById("123")
+    )*/
+    document.linkColor="#24dd0a";//未单击链接颜色
+    document.alinkColor="#000000";//链接获得焦点时颜色
+    document.vlinkColor="#caffe8";//单击过的链接颜色
+</script>
+</body>
+</html>
