@@ -1,0 +1,1096 @@
+[ 2018-10-23T10:21:51+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002069s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016799s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.049370s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.067780s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] is_file(): File name is longer than the maximum allowed path length on this platform (260): &lt;style type=&quot;text/css&quot;&gt;*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: &quot;微软雅黑&quot;; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover{color:blue;}&lt;/style&gt;&lt;div style=&quot;padding: 24px 48px;&quot;&gt; &lt;h1&gt;:)&lt;/h1&gt;&lt;p&gt;欢迎使用 &lt;b&gt;ThinkPHP&lt;/b&gt;！&lt;/p&gt;&lt;br/&gt;版本 V{$Think.version}&lt;/div&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;http://ad.topthink.com/Public/static/client.js&quot;&gt;&lt;/script&gt;&lt;thinkad id=&quot;ad_55e75dfae343f5a1&quot;&gt;&lt;/thinkad&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;http://tajs.qq.com/stats?sId=9347272&quot; charset=&quot;UTF-8&quot;&gt;&lt;/script&gt; D:\UPUPW_AP5.5\htdocs\map\ThinkPHP\Library\Think\Template.class.php 第 89 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.011642s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.023859s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.387829s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.407933s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.050289s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.076446s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.042925s ]
+INFO: [ app_end ] --END-- [ RunTime:0.062475s ]
+
+[ 2018-10-23T10:28:30+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001348s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013618s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.016984s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.023629s ]
+ERR: 模板不存在:./Map/Home/View/Index/index.html
+
+[ 2018-10-23T10:41:01+08:00 ] 127.0.0.1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001177s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016362s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.022221s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.028843s ]
+ERR: Think\Controller:checkIp方法不存在！
+
+[ 2018-10-23T10:41:32+08:00 ] 127.0.0.1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.004388s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017746s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.027612s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.036536s ]
+NOTIC: [8] Undefined variable: ip D:\UPUPW_AP5.5\htdocs\map\Map\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined variable: city D:\UPUPW_AP5.5\htdocs\map\Map\Home\Controller\IndexController.class.php 第 54 行.
+ERR: Think\Controller:assgin方法不存在！
+
+[ 2018-10-23T10:41:51+08:00 ] 127.0.0.1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.037750s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.027920s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.042947s ]
+NOTIC: [8] Undefined variable: ip D:\UPUPW_AP5.5\htdocs\map\Map\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined variable: city D:\UPUPW_AP5.5\htdocs\map\Map\Home\Controller\IndexController.class.php 第 54 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.004015s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.017734s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.267270s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.282819s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.019486s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.026074s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.022066s ]
+INFO: [ app_end ] --END-- [ RunTime:0.031350s ]
+
+[ 2018-10-23T10:42:54+08:00 ] 127.0.0.1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001853s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015682s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.016479s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.023790s ]
+NOTIC: [8] Undefined variable: ip D:\UPUPW_AP5.5\htdocs\map\Map\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Use of undefined constant undefined - assumed 'undefined' D:\UPUPW_AP5.5\htdocs\map\Map\Home\Controller\IndexController.class.php 第 44 行.
+NOTIC: [8] Undefined variable: city D:\UPUPW_AP5.5\htdocs\map\Map\Home\Controller\IndexController.class.php 第 54 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.003156s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.011382s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.197302s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.207158s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.017300s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.024051s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.017927s ]
+INFO: [ app_end ] --END-- [ RunTime:0.034662s ]
+
+[ 2018-10-23T10:43:35+08:00 ] 127.0.0.1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.006302s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018021s ]
+
+[ 2018-10-23T10:44:31+08:00 ] 127.0.0.1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002307s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017833s ]
+
+[ 2018-10-23T10:45:26+08:00 ] 127.0.0.1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001187s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013271s ]
+
+[ 2018-10-23T10:47:35+08:00 ] 127.0.0.1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002472s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018689s ]
+
+[ 2018-10-23T10:47:55+08:00 ] 127.0.0.1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002182s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020460s ]
+
+[ 2018-10-23T10:52:05+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001162s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011035s ]
+
+[ 2018-10-23T10:52:12+08:00 ] 127.0.0.1 /map/index.php/Home/Index/where.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002931s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015200s ]
+
+[ 2018-10-23T10:52:39+08:00 ] 127.0.0.1 /map/index.php/Home/Index/where.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002859s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020177s ]
+
+[ 2018-10-23T10:53:14+08:00 ] 127.0.0.1 /map/index.php/Home/Index/where.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001347s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014660s ]
+ERR: 非法操作:where
+
+[ 2018-10-23T10:53:25+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001320s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010743s ]
+
+[ 2018-10-23T10:54:45+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001179s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010373s ]
+
+[ 2018-10-23T10:55:56+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018942s ]
+
+[ 2018-10-23T10:57:41+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001154s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010811s ]
+
+[ 2018-10-23T10:58:02+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001345s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014760s ]
+
+[ 2018-10-23T10:59:39+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001316s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012077s ]
+
+[ 2018-10-23T10:59:54+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002491s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016765s ]
+
+[ 2018-10-23T11:00:15+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001284s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014326s ]
+
+[ 2018-10-23T11:01:46+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001341s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011958s ]
+
+[ 2018-10-23T11:02:02+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002233s ]
+INFO: [ app_init ] --END-- [ RunTime:0.025395s ]
+
+[ 2018-10-23T11:06:59+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001323s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011936s ]
+
+[ 2018-10-23T11:07:22+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002362s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011704s ]
+
+[ 2018-10-23T11:13:03+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001197s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010285s ]
+
+[ 2018-10-23T11:14:19+08:00 ] 127.0.0.1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001289s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014563s ]
+
+[ 2018-10-23T11:15:06+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001925s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014431s ]
+
+[ 2018-10-23T11:16:40+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001180s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014887s ]
+
+[ 2018-10-23T11:17:25+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001161s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009903s ]
+
+[ 2018-10-23T11:18:12+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001484s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010744s ]
+
+[ 2018-10-23T11:18:31+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001159s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011061s ]
+
+[ 2018-10-23T11:19:36+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003354s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018142s ]
+
+[ 2018-10-23T11:19:57+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001203s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015778s ]
+
+[ 2018-10-23T11:21:48+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001264s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010117s ]
+
+[ 2018-10-23T11:24:17+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001156s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011583s ]
+
+[ 2018-10-23T11:25:16+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001610s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012755s ]
+
+[ 2018-10-23T11:27:14+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001265s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011201s ]
+
+[ 2018-10-23T11:29:43+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001308s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012021s ]
+
+[ 2018-10-23T11:33:28+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002631s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013643s ]
+
+[ 2018-10-23T11:34:21+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001158s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010133s ]
+
+[ 2018-10-23T11:35:38+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001884s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014583s ]
+
+[ 2018-10-23T11:35:51+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001173s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011763s ]
+
+[ 2018-10-23T11:36:07+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001379s ]
+INFO: [ app_init ] --END-- [ RunTime:0.019543s ]
+
+[ 2018-10-23T11:36:39+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001755s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018560s ]
+
+[ 2018-10-23T11:37:06+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001332s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010996s ]
+
+[ 2018-10-23T11:38:03+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001405s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011045s ]
+
+[ 2018-10-23T11:38:21+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003164s ]
+INFO: [ app_init ] --END-- [ RunTime:0.022320s ]
+
+[ 2018-10-23T11:38:44+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001146s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010567s ]
+
+[ 2018-10-23T11:38:56+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001291s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010082s ]
+
+[ 2018-10-23T11:39:37+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001193s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011984s ]
+
+[ 2018-10-23T12:37:04+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001163s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011932s ]
+
+[ 2018-10-23T12:37:53+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001331s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013277s ]
+
+[ 2018-10-23T12:39:39+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001186s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012206s ]
+
+[ 2018-10-23T12:39:56+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001226s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012883s ]
+
+[ 2018-10-23T12:40:28+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001169s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012349s ]
+
+[ 2018-10-23T12:41:43+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002246s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014178s ]
+
+[ 2018-10-23T12:42:21+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001218s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015932s ]
+
+[ 2018-10-23T12:43:11+08:00 ] ::1 /map/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001422s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010826s ]
+
+[ 2018-10-23T12:44:20+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001313s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016588s ]
+
+[ 2018-10-23T12:44:44+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001201s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012899s ]
+
+[ 2018-10-23T14:35:11+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001655s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017782s ]
+
+[ 2018-10-23T14:46:54+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001180s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010372s ]
+
+[ 2018-10-23T14:53:17+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.005633s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016714s ]
+
+[ 2018-10-23T14:54:00+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001247s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011429s ]
+
+[ 2018-10-23T14:54:26+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001154s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011621s ]
+
+[ 2018-10-23T14:55:05+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012359s ]
+
+[ 2018-10-23T14:56:11+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001260s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012079s ]
+
+[ 2018-10-23T14:56:37+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001216s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013000s ]
+
+[ 2018-10-23T14:57:09+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001414s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011702s ]
+
+[ 2018-10-23T14:57:40+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001525s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012938s ]
+
+[ 2018-10-23T15:00:00+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001266s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012653s ]
+
+[ 2018-10-23T15:00:42+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.005946s ]
+INFO: [ app_init ] --END-- [ RunTime:0.037852s ]
+
+[ 2018-10-23T15:02:56+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001664s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014420s ]
+
+[ 2018-10-23T15:04:00+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001513s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015531s ]
+
+[ 2018-10-23T15:04:31+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001278s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010853s ]
+
+[ 2018-10-23T15:06:14+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001190s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013819s ]
+
+[ 2018-10-23T15:06:48+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003250s ]
+INFO: [ app_init ] --END-- [ RunTime:0.038913s ]
+
+[ 2018-10-23T15:07:58+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001167s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010216s ]
+
+[ 2018-10-23T15:08:52+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001173s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010899s ]
+
+[ 2018-10-23T15:14:22+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001265s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010282s ]
+
+[ 2018-10-23T15:15:29+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003683s ]
+INFO: [ app_init ] --END-- [ RunTime:0.027201s ]
+
+[ 2018-10-23T15:16:35+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001397s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017344s ]
+
+[ 2018-10-23T15:17:24+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001473s ]
+INFO: [ app_init ] --END-- [ RunTime:0.032201s ]
+
+[ 2018-10-23T15:21:50+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002564s ]
+INFO: [ app_init ] --END-- [ RunTime:0.024269s ]
+
+[ 2018-10-23T15:22:31+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001638s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012683s ]
+
+[ 2018-10-23T15:28:25+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001164s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010621s ]
+
+[ 2018-10-23T15:30:11+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001228s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011377s ]
+
+[ 2018-10-23T15:31:55+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001579s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011470s ]
+
+[ 2018-10-23T15:32:31+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001669s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016570s ]
+
+[ 2018-10-23T15:36:23+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001359s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011302s ]
+
+[ 2018-10-23T15:36:40+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001166s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012471s ]
+
+[ 2018-10-23T15:39:19+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001155s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010599s ]
+
+[ 2018-10-23T15:42:54+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001454s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014809s ]
+
+[ 2018-10-23T15:43:57+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001182s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011304s ]
+
+[ 2018-10-23T15:45:28+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.006710s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020208s ]
+
+[ 2018-10-23T15:46:26+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001188s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011659s ]
+
+[ 2018-10-23T15:46:53+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001146s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012562s ]
+
+[ 2018-10-23T15:47:55+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001179s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012600s ]
+
+[ 2018-10-23T15:48:33+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003443s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020739s ]
+
+[ 2018-10-23T15:50:07+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001505s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012508s ]
+
+[ 2018-10-23T15:50:43+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.006596s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020444s ]
+
+[ 2018-10-23T15:51:12+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001147s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009886s ]
+
+[ 2018-10-23T15:52:08+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001307s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010582s ]
+
+[ 2018-10-23T15:55:24+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001525s ]
+INFO: [ app_init ] --END-- [ RunTime:0.021578s ]
+
+[ 2018-10-23T15:55:59+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.005500s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015530s ]
+
+[ 2018-10-23T15:56:22+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002874s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015713s ]
+
+[ 2018-10-23T16:07:12+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001792s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013057s ]
+
+[ 2018-10-23T16:07:40+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002506s ]
+INFO: [ app_init ] --END-- [ RunTime:0.025301s ]
+
+[ 2018-10-23T16:09:08+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002370s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015865s ]
+
+[ 2018-10-23T16:09:45+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.004958s ]
+INFO: [ app_init ] --END-- [ RunTime:0.033644s ]
+
+[ 2018-10-23T16:09:52+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001268s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012845s ]
+
+[ 2018-10-23T16:10:11+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001305s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012391s ]
+
+[ 2018-10-23T16:12:29+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002150s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017529s ]
+
+[ 2018-10-23T16:13:50+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003953s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020608s ]
+
+[ 2018-10-23T16:16:21+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002259s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011560s ]
+
+[ 2018-10-23T16:17:32+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001321s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010518s ]
+
+[ 2018-10-23T16:18:23+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001983s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013522s ]
+
+[ 2018-10-23T16:19:17+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001390s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010915s ]
+
+[ 2018-10-23T16:20:24+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003712s ]
+INFO: [ app_init ] --END-- [ RunTime:0.024423s ]
+
+[ 2018-10-23T16:20:49+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001198s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013206s ]
+
+[ 2018-10-23T16:21:07+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001626s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015535s ]
+
+[ 2018-10-23T16:21:27+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002667s ]
+INFO: [ app_init ] --END-- [ RunTime:0.028725s ]
+
+[ 2018-10-23T16:27:32+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001315s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012183s ]
+
+[ 2018-10-23T16:28:41+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.009649s ]
+INFO: [ app_init ] --END-- [ RunTime:0.029338s ]
+
+[ 2018-10-23T16:29:31+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001440s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014308s ]
+
+[ 2018-10-23T16:30:35+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001283s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011481s ]
+
+[ 2018-10-23T16:31:51+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001304s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012557s ]
+
+[ 2018-10-23T16:33:22+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001304s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010704s ]
+
+[ 2018-10-23T16:33:25+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001209s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013324s ]
+
+[ 2018-10-23T16:33:44+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003130s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016553s ]
+
+[ 2018-10-23T20:02:29+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001334s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012570s ]
+
+[ 2018-10-23T20:02:43+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001190s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012973s ]
+
+[ 2018-10-23T20:06:43+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002422s ]
+INFO: [ app_init ] --END-- [ RunTime:0.026202s ]
+
+[ 2018-10-23T20:09:42+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001314s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013513s ]
+
+[ 2018-10-23T20:10:50+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002658s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017469s ]
+
+[ 2018-10-23T20:11:36+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001247s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014910s ]
+
+[ 2018-10-23T20:15:29+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001163s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012681s ]
+
+[ 2018-10-23T20:15:30+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001538s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016674s ]
+
+[ 2018-10-23T20:15:31+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002576s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015453s ]
+
+[ 2018-10-23T20:15:32+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001453s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014926s ]
+
+[ 2018-10-23T20:15:33+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.004190s ]
+INFO: [ app_init ] --END-- [ RunTime:0.024784s ]
+
+[ 2018-10-23T20:15:34+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001565s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017440s ]
+
+[ 2018-10-23T20:16:16+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001347s ]
+INFO: [ app_init ] --END-- [ RunTime:0.078194s ]
+
+[ 2018-10-23T20:17:52+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001188s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014627s ]
+
+[ 2018-10-23T20:18:12+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003229s ]
+INFO: [ app_init ] --END-- [ RunTime:0.023622s ]
+
+[ 2018-10-23T20:19:56+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002695s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018329s ]
+
+[ 2018-10-23T20:20:20+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001462s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013212s ]
+
+[ 2018-10-23T20:28:34+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.018502s ]
+INFO: [ app_init ] --END-- [ RunTime:0.058067s ]
+
+[ 2018-10-23T20:29:07+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001339s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017864s ]
+
+[ 2018-10-23T20:29:26+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001970s ]
+INFO: [ app_init ] --END-- [ RunTime:0.022172s ]
+
+[ 2018-10-23T20:34:38+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001181s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017630s ]
+
+[ 2018-10-23T20:35:00+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.004394s ]
+INFO: [ app_init ] --END-- [ RunTime:0.024417s ]
+
+[ 2018-10-23T20:35:23+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002799s ]
+INFO: [ app_init ] --END-- [ RunTime:0.025005s ]
+
+[ 2018-10-23T20:35:57+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001320s ]
+INFO: [ app_init ] --END-- [ RunTime:0.019782s ]
+
+[ 2018-10-23T20:36:45+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001981s ]
+INFO: [ app_init ] --END-- [ RunTime:0.019389s ]
+
+[ 2018-10-23T20:37:06+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002792s ]
+INFO: [ app_init ] --END-- [ RunTime:0.019844s ]
+
+[ 2018-10-23T20:52:00+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001392s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018836s ]
+
+[ 2018-10-23T20:52:32+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001806s ]
+INFO: [ app_init ] --END-- [ RunTime:0.019681s ]
+
+[ 2018-10-23T20:58:45+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001207s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010019s ]
+
+[ 2018-10-23T20:59:33+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001161s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011117s ]
+
+[ 2018-10-23T21:01:14+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001213s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010486s ]
+
+[ 2018-10-23T21:01:41+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001584s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014637s ]
+
+[ 2018-10-23T21:02:07+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001158s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010170s ]
+
+[ 2018-10-23T21:02:53+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001835s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015575s ]
+
+[ 2018-10-23T21:05:10+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001965s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016076s ]
+
+[ 2018-10-23T21:09:27+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001990s ]
+INFO: [ app_init ] --END-- [ RunTime:0.023180s ]
+
+[ 2018-10-23T21:10:20+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002113s ]
+INFO: [ app_init ] --END-- [ RunTime:0.031160s ]
+
+[ 2018-10-23T21:10:47+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002959s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020126s ]
+
+[ 2018-10-23T21:11:10+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003330s ]
+INFO: [ app_init ] --END-- [ RunTime:0.039674s ]
+
+[ 2018-10-23T21:15:29+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001156s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010147s ]
+
+[ 2018-10-23T21:25:42+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001344s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010995s ]
+
+[ 2018-10-23T21:26:03+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001454s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018563s ]
+
+[ 2018-10-23T21:26:33+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002174s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020043s ]
+
+[ 2018-10-23T21:28:51+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001324s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013560s ]
+
+[ 2018-10-23T21:30:10+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002797s ]
+INFO: [ app_init ] --END-- [ RunTime:0.022314s ]
+
+[ 2018-10-23T21:32:18+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001297s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010459s ]
+
+[ 2018-10-23T21:33:24+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002273s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020821s ]
+
+[ 2018-10-23T21:34:21+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001691s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012359s ]
+
+[ 2018-10-23T21:35:08+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001606s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014190s ]
+
+[ 2018-10-23T21:36:37+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001418s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015274s ]
+
+[ 2018-10-23T21:37:18+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001215s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012199s ]
+
+[ 2018-10-23T21:38:14+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001556s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011328s ]
+
+[ 2018-10-23T21:54:01+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.005826s ]
+INFO: [ app_init ] --END-- [ RunTime:0.024943s ]
+
+[ 2018-10-23T21:55:38+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001839s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018125s ]
+
+[ 2018-10-23T21:56:51+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002163s ]
+INFO: [ app_init ] --END-- [ RunTime:0.033012s ]
+
+[ 2018-10-23T21:57:44+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001640s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017258s ]
+
+[ 2018-10-23T21:59:17+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001692s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011351s ]
+
+[ 2018-10-23T22:00:03+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001153s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009880s ]
+
+[ 2018-10-23T22:00:38+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003205s ]
+INFO: [ app_init ] --END-- [ RunTime:0.021110s ]
+
+[ 2018-10-23T22:01:01+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002397s ]
+INFO: [ app_init ] --END-- [ RunTime:0.022750s ]
+
+[ 2018-10-23T22:01:19+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001160s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014590s ]
+
+[ 2018-10-23T22:04:27+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.009660s ]
+INFO: [ app_init ] --END-- [ RunTime:0.048978s ]
+
+[ 2018-10-23T22:06:49+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001297s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011858s ]
+
+[ 2018-10-23T22:11:18+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002996s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018255s ]
+
+[ 2018-10-23T22:11:38+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001339s ]
+INFO: [ app_init ] --END-- [ RunTime:0.022622s ]
+
+[ 2018-10-23T22:13:07+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002751s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020304s ]
+
+[ 2018-10-23T22:15:12+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001315s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011569s ]
+
+[ 2018-10-23T22:16:04+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003784s ]
+INFO: [ app_init ] --END-- [ RunTime:0.028409s ]
+
+[ 2018-10-23T22:18:41+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001169s ]
+INFO: [ app_init ] --END-- [ RunTime:0.030175s ]
+
+[ 2018-10-23T22:18:45+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002700s ]
+INFO: [ app_init ] --END-- [ RunTime:0.019643s ]
+
+[ 2018-10-23T22:19:33+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001155s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015458s ]
+
+[ 2018-10-23T22:19:43+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018288s ]
+
+[ 2018-10-23T22:21:33+08:00 ] ::1 /map/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001727s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013788s ]
+

@@ -1,0 +1,18 @@
+[ 2018-10-23T10:46:31+08:00 ] 127.0.0.1 /map/index.php/Index/where
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001205s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011285s ]
+ERR: 无法加载模块:Index
+
+[ 2018-10-23T10:46:42+08:00 ] 127.0.0.1 /map/index.php/Index/where
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001236s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013254s ]
+ERR: 无法加载模块:Index
+
+[ 2018-10-23T10:51:19+08:00 ] 127.0.0.1 /map/index.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001844s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018250s ]
+ERR: 无法加载模块:Index
+

@@ -1,0 +1,701 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>台湾省天气信息查询</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="http://www.forbetterquality.cn/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<style type="text/css">
+		/*base style*/
+		html,body{margin: 0px;width: 100%;padding: 0px;border: none; touch-action: pan-y;}
+		.ui-loader-default{ display:none;}
+		.ui-mobile-viewport{ border:none;}
+		.ui-page {padding: 0; margin: 0; outline: 0;}
+		.ol-popup{
+			cursor: pointer;
+		}
+		[v-cloak] {
+	        display: none;
+	    }
+
+	    .carousel-caption{
+	    	width: 100%;
+	    	height: 100%;
+	    	right: 0;
+	    	left: 0;
+	    	bottom: 0;
+	    }
+
+
+		.fa-php{
+			color: #5a69a4;
+		}
+		.fa-bold{
+			color: #563d7c;
+		}
+		.git{
+			color: #181618;
+		}
+		.fa-graduation-cap{
+			color: #184481;
+		}
+		.fa-vuejs{
+			color: #58b786;
+		}
+
+		.fa-php,.fa-bold,.git,.fa-graduation-cap,.fa-vuejs{
+			font-size: 2.5em;
+			margin: 1rem;
+		}
+	
+		/*media style*/
+		@media(max-width: 576px){
+			#futureWeatherUl .card{
+				margin-top: 5px;
+			}
+			body,html,#app{
+				height: 100%;
+			}
+			#map{
+				min-height: 400px;
+				height: 60%;
+			}
+		}
+		@media(min-width: 577px){
+			html,body,#app{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			div#map,div#info{
+				height: 100%;
+			}
+
+			#websiteInfo{
+				height: 40%;
+			}
+			#weatherInfo{
+				height: 60%;
+			}
+			#todayWeather{
+				height: 50%;
+			}
+			ul#futureWeatherUl{
+				overflow-y: scroll;
+				height:200px;
+			}
+			/*滚动条样式*/
+	        ul#futureWeatherUl::-webkit-scrollbar {/*滚动条整体样式*/
+	            width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+	            height: 4px;
+	        }
+	        ul#futureWeatherUl::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+	            border-radius: 5px;
+	            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+	            background: rgba(0,0,0,0.2);
+	        }
+	        ul#futureWeatherUl::-webkit-scrollbar-track {/*滚动条里面轨道*/
+	            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+	            border-radius: 0;
+	            background: rgba(0,0,0,0.1);
+	        }
+		}
+	</style>
+</head>
+<body>
+	<div class="modal fade" id="aboutUs" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content carousel slide" id="aboutUsSlide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#aboutUsSlide" data-slide-to="0" class="active"></li>
+					<li data-target="#aboutUsSlide" data-slide-to="1"></li>
+					<li data-target="#aboutUsSlide" data-slide-to="2"></li>
+					<li data-target="#aboutUsSlide" data-slide-to="3"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="http://forbetterquality.cn/img/16by9.png" class="d-block col-12">
+						<div class="carousel-caption row no-gutters text-dark">
+							<div class="col-12 text-center my-2">
+								<div class="row w-100 no-gutters align-items-center justify-content-center">
+									<span class="lead col-6" style="font-size: 2rem;">台湾省天气信息查询</span>
+									<div class="col-3">
+										<span class="QRcode"></span>
+									</div>
+								</div>
+								
+								
+								<h6 class="w-75 mx-auto text-left my-3 row no-gutters">
+									<div class="col-1">
+										<span class="badge badge-primary m-1">组长</span>
+									</div>
+									<div class="col-11">
+										<span class="m-1">*** <span class="badge badge-light mx-1">前端</span></span>
+									</div>
+									<div class="w-100 my-1"></div>
+									<div class="col-1">
+										<span class="badge badge-primary m-1">组员</span>
+									</div>
+									<div class="col-11">
+										<span class="m-1">邓斯瀚 <span class="badge badge-light mx-1">前端 后端 运维 数据库</span></span>
+										<div class="w-100 my-2"></div>
+										<span class="m-1">曾子豪</span>
+										<span class="m-1">金宇宁</span>
+										<span class="m-1">李泽宇</span>
+										<span class="m-1">刘思明</span>
+										<span class="badge badge-light mx-1">收集资料</span>
+									</div>
+								</h6>
+							</div>
+						    <div class="col-12 my-2 row no-gutters text-center justify-content-center">
+						    
+								<div class="col-2 mx-3">
+									<i class="fab fa-php"></i>
+									<h4>ThinkPHP</h4>
+									<p>基于 MVC 框架</p>
+								</div>
+
+								<div class="col-2 mx-3">
+									<i class="fas fa-bold"></i>
+									<h4>Bootstrap</h4>
+									<p>响应式设计</p>
+								</div>
+
+								<div class="col-2 mx-3">
+									<i class="fab fa-vuejs"></i>
+									<h4>Vue</h4>
+									<p>MVVM 框架</p>
+								</div>
+
+
+								<div class="col-2 mx-3">
+									<i class="fab fa-github git"></i>
+									<h4>GitHub</h4>
+									<p>源于开源</p>
+								</div>
+						    </div>
+					  	</div>
+					</div>
+					<div class="carousel-item">
+						<img src="http://forbetterquality.cn/img/16by9.png" class="d-block col-12">
+						<div class="carousel-caption row no-gutters text-dark justify-content-center">
+							<div class="col-2 text-center">
+								<i class="fab fa-github git"></i>
+								<h4>GitHub</h4>
+								<p>源于开源</p>
+							</div>
+							<div class="col-8 border-left row no-gutters p-3 text-left">
+								<span class="lead w-100" style="height: 2rem;">经典的 LAMP 建站</span>
+								<ol class="list-unstyled">
+									<li>
+										<span class="badge badge-warning mx-2">服务器</span>
+										CentOs 7.0
+									</li>
+									<li>
+										<span class="badge badge-warning mx-2">数据库</span>
+										MySQL 8.0
+									</li>
+									<li>
+										<span class="badge badge-warning mx-2">后端</span>
+										ThinkPHP 3.2.3
+									</li>
+									<li>
+										<span class="badge badge-warning mx-2">前端</span>
+										Vue 2.1 / Bootstrap 4.1 / OpenLayers 4.8 / jQuery 1.18
+									</li>
+								</ol>
+								<img src="http://forbetterquality.cn/img/des1.jpg" height="200rem">
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="http://forbetterquality.cn/img/16by9.png" class="d-block col-12">
+						<div class="carousel-caption row no-gutters text-dark justify-content-center">
+							<div class="col-2 text-center mr-2">
+								<i class="fab fa-php m-2"></i><i class="fab fa-vuejs m-2"></i>
+								<h6>ThinkPHP + Vue</h6>
+								<p>MVC 框架</p>
+							</div>
+							<div class="col-8 border-left row no-gutters p-3 text-left">
+								<span class="lead w-100" style="height: 2rem;">前后端均采用 MVC 框架</span>
+								<ol class="list-unstyled m-0">
+									<li>
+										<span class="badge badge-warning mx-2">后端 MVC</span>
+										ThinkPHP 3.2.3
+									</li>
+									<li>
+										<span class="badge badge-warning mx-2">前端 MVVC</span>
+										Vue 2.1
+									</li>
+								</ol>
+								<img src="http://forbetterquality.cn/img/des2.jpg" height="300rem">
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="http://forbetterquality.cn/img/16by9.png" class="d-block col-12">
+						<div class="carousel-caption row no-gutters text-dark justify-content-center">
+							<div class="col-2 text-center mr-2">
+								<i class="fas fa-bold"></i>
+								<h4>Bootstrap</h4>
+								<p>响应式设计</p>
+							</div>
+							<div class="col-8 border-left row no-gutters p-3 text-left">
+								<span class="lead w-100" style="height: 2rem;">响应式设计</span>
+								<ol class="list-unstyled m-0">
+									<li>
+										<span class="badge badge-warning mx-2">Bootstrap</span>
+										一份代码实现 PC 端与移动端的不同样式
+									</li>
+								</ol>
+								<div class="row w-100 m-0 no-gutters justify-content-around">
+									<img src="http://forbetterquality.cn/img/des3.png" height="280rem" class="col-auto">
+									<img src="http://forbetterquality.cn/img/des4.jpg" height="150rem" class="col-auto m-1">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="http://forbetterquality.cn/img/16by9.png" class="d-block col-12">
+						<div class="carousel-caption row no-gutters text-dark justify-content-center align-items-center">
+							<div class="col-12 text-center">
+								<a class="btn btn-outline-dark px-3" href="#" target="_blank">
+									<i class="fab fa-github p-1" style="font-size: 120%;"></i> 在 GitHub 上查看 台湾省天气查询
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#aboutUsSlide" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#aboutUsSlide" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>		
+		</div>
+	</div>
+
+
+
+	<div id="app" class="container-fluid row no-gutters justify-content-around p-0 bg-light"  v-cloak>
+		<div id="map" class="col-lg-9 col-12"></div>
+		<div 
+			v-if="infoOnMap"
+			v-for="(cityInfo,index) in infoOnMap"
+			:id="'popup-'+index" 
+			class="ol-popup row no-gutters"
+			@click="setSlideBarInfo(cityInfo.index)"
+			:title="info[index].cityname">
+			<div class="col-12 text-center">
+				<img :src="cityInfo.icon" :height="imgHeight+'px'">
+				<span class="badge badge-primary" :style="'font-size:'+fontSize+'%'">{{ cityInfo.text }}</span>
+			</div>
+		</div>
+		<div id="info" class="col-lg-3 col-12 row no-gutters justify-content-around" v-if="isShow">
+			<div class="col-12 bg-light p-3 pt-0 row no-gutters order-2 order-lg-1" id="websiteInfo">
+				<h4 class="lead col-12">台湾省天气查询</h4>
+				<small class="my-1"><small>更新于 : {{ isShow.lastBuildDate }}</small></small>
+				<hr class="my-2 col-12">
+				<div class="QRcode d-block d-lg-none col-12 text-center"></div>
+				<div class="col-12 text-center">
+					<center><button role="button" class="btn btn-sm btn-outline-primary mt-3 d-none d-lg-block" data-toggle="modal" data-target="#aboutUs">关于本站点</button></center>
+					
+					<div class="w-100 my-2"></div>
+					<small>您的IP地址：<span class="badge badge-success">{$ip}</span> 来自 <span class="badge badge-primary">{$city}</span></small>
+				</div>
+			</div>
+			<div class="col-12 p-3 bg-light row no-gutters order-1 order-lg-2 " id="weatherInfo">
+				<div id="todayWeather" class="p-0 m-0 col-12 row no-gutters">
+					<div class="col-4 text-center">
+						<h5 class="display-4"
+							v-text="isShow.cityname"
+							style="font-size: 200%;"></h5>
+					</div>
+					<div class="col-8 border-left pl-3">
+						<div class="row no-gutters">
+							<div class="col-4 text-center">
+								<img :src="isShow.item.forecast[0].imgUrl" height="50rem">
+							</div>
+							<h6 class="col-8">
+								<span class="badge badge-primary mt-3 ml-2">{{ isShow.item.forecast[0].text }}</span>
+							</h6>
+						</div>
+						<p class="lead my-2 text-center w-100">{{ isShow.item.forecast[0].low }} ℃ ~ {{ isShow.item.forecast[0].high }} ℃</p>
+						<p class="lead my-2 text-center w-100" style="font-size: 75%;">
+							日出 ：{{ isShow.astronomy.sunrise }} 日落 ：{{ isShow.astronomy.sunset }} 
+						</p>
+					</div>
+					<p class="lead my-2" style="font-size:90%;">未来一周天气预报</p>
+				</div>
+
+				<ul class="list-unstyled col-12" id="futureWeatherUl">
+					<li v-for="(day,dayIndex) in isShow.item.forecast" class="card" v-if="dayIndex>0&&dayIndex<8">
+						<div class="card-body row no-gutters p-3">
+							<p class="col-12">{{ day.date }} <span class="badge badge-light">{{ day.day }}</span></p>
+							<div class="col-4 text-center">
+								<img :src="day.imgUrl" height="50rem">
+							</div>
+							<div class="col-8">
+								<h6>
+									<span class="badge badge-primary ml-2">{{ day.text }}</span>
+								</h6>
+								<h6>
+									{{ day.low }} ℃ ~ {{ day.high }} ℃
+								</h6>
+							</div>
+						</div>
+					</li>
+				</ul>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<!-- jQuery -->
+<script src="http://www.forbetterquality.cn/jquery.js"></script>
+<!-- jQuery Mobile -->
+<script src="https://cdn.bootcss.com/jquery-mobile/1.4.5/jquery.mobile.js"></script>
+<!-- jQuery QR code -->
+<script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+<!-- bootstrap -->
+<script src="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="http://www.forbetterquality.cn/bootstrap/js/bootstrap.min.js"></script>
+<!-- Vue -->
+<script src="http://lib.baomitu.com/vue/2.5.17-beta.0/vue.js"></script>
+<!-- openlayers -->
+<link href="https://cdn.bootcss.com/openlayers/4.6.5/ol.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/openlayers/4.6.5/ol.js"></script>
+
+<script type="text/javascript">
+	function getWeatherInfo() {
+		var weatherInfo;
+		var weatherCode=[
+	        '龙卷风',//0 tornado
+	        '热带风暴',//1 tropical storm
+	        '飓风',//2 hurricane
+	        '次剧烈雷雨',//3 severe thunderstorms
+	        '雷雨',//4 thunderstorms
+	        '雨夹雪',//5 mixed rain and snow
+	        '雨夹雪',//6 mixed rain and sleet
+	        '雨夹雪',//7 mixed snow and sleet
+	        '毛毛雨',//8 freezing drizzle
+	        '小雨',//9 drizzle
+	        '冻雨',//10 freezing rain
+	        '小阵雨',//11 showers
+	        '大阵雨',//12 showers
+	        '小雪花',//13 snow flurries
+	        '小雪阵雨',//14 light snow showers
+	        '风雪天',//15 blowing snow
+	        '雪',//16 snow
+	        '冰雹',//17 hail
+	        '雨夹雪',//18 sleet
+	        '灰尘',//19 dust
+	        '雾',//20 foggy
+	        '霾',//21 haze
+	        '烟',//22 smoky
+	        '风暴',//23 blustery
+	        '多风',//24 windy
+	        '冷',//25 cold
+	        '多云',//26 cloudy
+	        '多云',//27 mostly cloudy (night)
+	        '多云',//28 mostly cloudy (day)
+	        '多云转晴',//29 partly cloudy (night)
+	        '多云转晴',//30 partly cloudy (day)
+	        '晴',//31 clear (night)
+	        '晴',//32 sunny
+	        '少云',//33 fair (night)
+	        '少云',//34 fair (day)
+	        '混合雨和冰雹',//35 mixed rain and hail
+	        '炎热',//36 hot
+	        '零星雷暴',//37 isolated thunderstorms
+	        '零星雷阵雨',//38 scattered thunderstorms
+	        '零星雷阵雨',//39 scattered thunderstorms
+	        '零星阵雨',//40 scattered showers
+	        '大雪',//41 heavy snow
+	        '分散的阵雪',//42 scattered snow showers
+	        '大雪',//43 heavy snow
+	        '部分多云',//44 partly cloudy
+	        '雷阵雨',//45 thundershowers
+	        '阵雪',//46 snow showers
+	        '零星雷阵雨',//47 isolated thundershowers
+	        '无法获取',//48 3200 not available
+	    ];
+	    var cityList=[
+	        {name:"台北",woeid:"2306179"},
+	        // {name:"新北",woeid:"90717580"},
+	        {name:"桃园",woeid:"2298866"},
+	        {name:"台中地区",woeid:"2306181"},
+	        {name:"台南",woeid:"2306182"},
+	        {name:"高雄地区",woeid:"2306180"},
+	        {name:"基隆",woeid:"2306188"},
+	        {name:"新竹",woeid:"2306185"},
+	        {name:"嘉义",woeid:"2296315"},
+	        {name:"云林",woeid:"2347346"},
+	        {name:"花莲",woeid:"2347335"},
+	        {name:"金门",woeid:"28760735"},
+	        {name:"屏东",woeid:"2347340"},
+	        {name:"彰化",woeid:"20070572"},
+	        {name:"台东",woeid:"2347344"},
+	        {name:"澎湖",woeid:"22695856"},
+	        {name:"宜兰",woeid:"2347336"},
+	        {name:"苗栗",woeid:"2347338"},
+	    ];
+	    var apiServer = 'https://query.yahooapis.com/v1/public/yql';
+	    var idListString="";
+	    for(var i=0;i<cityList.length;i++){
+	        if(i==0){
+	            idListString=cityList[i].woeid;
+	        }else{
+	            idListString+=","+cityList[i].woeid;
+	        }
+	    }
+	    var queryString = 'select * from weather.forecast where woeid in ('+idListString+') and u="c"'; 
+	 	$.ajax({
+			method:'get',
+	        async: false,
+	        url:apiServer,
+	        data:{
+	            format:'json',
+	            q:queryString
+	        },
+	        success:function(data){
+	        	for(var i=0;i<data.query.results.channel.length;i++){
+	                data.query.results.channel[i].cityname=cityList[i].name;
+	        		for(var k=0;k<data.query.results.channel[i].item.forecast.length;k++){
+	        			if(data.query.results.channel[i].item.forecast[k].code==3200){
+	                        data.query.results.channel[i].item.forecast[k].text=weatherCode[48];
+	                    }else{
+	                        data.query.results.channel[i].item.forecast[k].text=weatherCode[data.query.results.channel[i].item.forecast[k].code];
+	                    }
+	                    // 获取天气图片
+	                    var weatherImgURL='http://forbetterquality.cn/img/weather/';
+	                    switch(data.query.results.channel[i].item.forecast[k].code){
+	                        case '0':
+	                            weatherImgURL=weatherImgURL+'Weather NA.png';break;
+	                        case '1':
+	                            weatherImgURL=weatherImgURL+'Thunderstorms.png';break;
+	                        case '2':
+	                            weatherImgURL=weatherImgURL+'Windy.png';break;
+	                        case '3':
+	                            weatherImgURL=weatherImgURL+'Thunders.png';break;
+	                        case '4':
+	                            weatherImgURL=weatherImgURL+'Thunderstorms.png';break;
+	                        case '5':
+	                            weatherImgURL=weatherImgURL+'Icy Snow.png';break;
+	                        case '6':
+	                            weatherImgURL=weatherImgURL+'Icy Snow.png';break;
+	                        case '7':
+	                            weatherImgURL=weatherImgURL+'Icy Snow.png';break;
+	                        case '8':
+	                            weatherImgURL=weatherImgURL+'Light Rain.png';break;
+	                        case '9':
+	                            weatherImgURL=weatherImgURL+'Light Rain.png';break;
+	                        case '10':
+	                            weatherImgURL=weatherImgURL+'Icy.png';break;
+	                        case '11':
+	                            weatherImgURL=weatherImgURL+'Rain.png';break;
+	                        case '12':
+	                            weatherImgURL=weatherImgURL+'Heavy Rain.png';break;
+	                        case '13':
+	                            weatherImgURL=weatherImgURL+'Few Flurries.png';break;
+	                        case '14':
+	                            weatherImgURL=weatherImgURL+'Wet Flurries.png';break;
+	                        case '15':
+	                            weatherImgURL=weatherImgURL+'Windy Snow.png';break;
+	                        case '16':
+	                            weatherImgURL=weatherImgURL+'Snow.png';break;
+	                        case '17':
+	                            weatherImgURL=weatherImgURL+'Weather NA.png';break;
+	                        case '18':
+	                            weatherImgURL=weatherImgURL+'Icy Snow.png';break;
+	                        case '19':
+	                            weatherImgURL=weatherImgURL+'Dust.png';break;
+	                        case '20':
+	                            weatherImgURL=weatherImgURL+'Fog.png';break;
+	                        case '21':
+	                            weatherImgURL=weatherImgURL+'Haze.png';break;
+	                        case '22':
+	                            weatherImgURL=weatherImgURL+'Smoke.png';break;
+	                        case '23':
+	                            weatherImgURL=weatherImgURL+'Thunderstorms.png';break;
+	                        case '24':
+	                            weatherImgURL=weatherImgURL+'Windy.png';break;
+	                        case '25':
+	                            weatherImgURL=weatherImgURL+'Frigid.png';break;
+	                        case '26':
+	                            weatherImgURL=weatherImgURL+'Cloudy.png';break;
+	                        case '27':
+	                            weatherImgURL=weatherImgURL+'Cloudy Night.png';break;
+	                        case '28':
+	                            weatherImgURL=weatherImgURL+'Cloudy.png';break;
+	                        case '29':
+	                            weatherImgURL=weatherImgURL+'Night Few Clouds.png';break;
+	                        case '30':
+	                            weatherImgURL=weatherImgURL+'Mostly Sunny.png';break;
+	                        case '31':
+	                            weatherImgURL=weatherImgURL+'Moon.png';break;
+	                        case '32':
+	                            weatherImgURL=weatherImgURL+'Sunny.png';break;
+	                        case '33':
+	                            weatherImgURL=weatherImgURL+'Night Few Clouds.png';break;
+	                        case '34':
+	                            weatherImgURL=weatherImgURL+'Sun.png';break;
+	                        case '35':
+	                            weatherImgURL=weatherImgURL+'Icy Snow.png';break;
+	                        case '36':
+	                            weatherImgURL=weatherImgURL+'Hot.png';break;
+	                        case '37':
+	                            weatherImgURL=weatherImgURL+'Thunders.png';break;
+	                        case '38':
+	                            weatherImgURL=weatherImgURL+'Thunderstorms.png';break;
+	                        case '39':
+	                            weatherImgURL=weatherImgURL+'Thunderstorms.png';break;
+	                        case '40':
+	                            weatherImgURL=weatherImgURL+'Rain.png';break;
+	                        case' 41':
+	                            weatherImgURL=weatherImgURL+'Snow.png';break;
+	                        case '42':
+	                            weatherImgURL=weatherImgURL+'Few Flurries.png';break;
+	                        case '43':
+	                            weatherImgURL=weatherImgURL+'Snow.png';break;
+	                        case '44':
+	                            weatherImgURL=weatherImgURL+'Cloudy.png';break;
+	                        case '45':
+	                            weatherImgURL=weatherImgURL+'Thunderstorms.png';break;
+	                        case '46':
+	                            weatherImgURL=weatherImgURL+'Rain.png';break;
+	                        case '47':
+	                            weatherImgURL=weatherImgURL+'Thunderstorms.png';break;
+	                        case '48':
+	                            weatherImgURL=weatherImgURL+'Weather NA.png';break;
+	                    }
+	                    data.query.results.channel[i].item.forecast[k].imgUrl=weatherImgURL;	                			
+	        		}
+	        	}
+	        	weatherInfo=data.query.results.channel;
+	        },
+		});
+		return weatherInfo;
+	}
+
+</script>
+<script type="text/javascript">
+	// 生成二维码
+	$(function(){
+		$('.QRcode').qrcode({
+		    render: "canvas",
+		    width: 100,
+		    height: 100,
+		    text: window.location.href
+		});
+	})
+	
+	$(document).bind('mobileinit',function(){
+        $.mobile.loadingMessage = false;
+    });
+
+    // 为bootstrap添加手指操作事件
+	$(document).ready(function() {
+		$('.carousel').carousel({
+		  	interval: false
+		})
+		$(".carousel").swiperight(function() {
+			$(this).carousel('prev');
+		});
+		$(".carousel").swipeleft(function() {
+			$(this).carousel('next');
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	var app=new Vue({
+		el:"#app",
+		data:{
+			map:undefined,
+			info:undefined,
+			infoOnMap:undefined,
+			isShow:undefined,
+			imgHeight:50,
+			fontSize:100,
+		},
+		methods:{
+			setMap:function () {
+				this.map=new ol.Map({
+			        layers:[
+			            new ol.layer.Tile({
+			                source : new ol.source.XYZ({
+			                    url:'http://www.google.cn/maps/vt/pb=!1m4!1m3!1i{z}!2i{x}!3i{y}!2m3!1e0!2sm!3i345013117!3m8!2szh-CN!3scn!5e1105!12m4!1e68!2m2!1sset!2sRoadmap!4e0'
+			                })
+			            }),
+			        ],
+			        view:new ol.View({
+			            center: [121, 23.6],
+			            zoom:8,
+			            projection:'EPSG:4326'//这种定义投影方式才能全局改变投影，而不是只改变中心点投影
+			        }),
+			        target:'map'
+			    });
+			},
+			getInfo:function(){
+				this.info=getWeatherInfo();
+			},
+			setSlideBarInfo:function(index){
+				console.log(this.info[index]);
+				this.isShow=this.info[index];
+			},
+			getInfoOnMap:function(){
+				var loactionArray=[];
+				for(var i=0;i<this.info.length;i++){
+					loactionArray.push({
+						index:i,
+						lat:this.info[i].item.lat,
+						long:this.info[i].item.long,
+						icon:this.info[i].item.forecast[0].imgUrl,
+						text:Math.ceil((parseInt(this.info[i].item.forecast[0].high)+parseInt(this.info[i].item.forecast[0].low))/2)+" ℃"
+					});
+				}
+				this.infoOnMap=loactionArray;
+			},
+			setInfoToMap:function(cityInfo){
+				var overlay = new ol.Overlay({
+					position: [cityInfo.long,cityInfo.lat],
+					element: document.getElementById("popup-"+cityInfo.index),
+					positioning: 'center-center',
+				});
+				this.map.addOverlay(overlay);
+			},
+		},
+		mounted:function(){
+			this.getInfo();
+			this.getInfoOnMap();
+			this.setMap();
+			
+			this.isShow=this.info[0];
+
+			
+			var _this=this;
+		    this.map.on("moveend",function(e){
+			    var zoom = _this.map.getView().getZoom();  //获取当前地图的缩放级别
+			    if (zoom<9) {
+			    	_this.fontSize=45*Math.pow(2,(zoom-8));
+			    	_this.imgHeight=50*Math.pow(2,(zoom-8));  
+			    }			   
+			}); 
+
+
+		}
+	});
+
+	$(function(){
+		for(var i=0;i<app.infoOnMap.length;i++){
+			app.setInfoToMap(app.infoOnMap[i]);
+		}
+	});
+</script>
