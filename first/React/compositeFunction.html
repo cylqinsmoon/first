@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>组合函数</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <style>
+        #Content
+        {
+            font-family: 方正舒体;
+            font-size: x-large;
+            /*left: 38%;
+            top:35%;
+            position: absolute;*/
+            text-align: center;
+            max-width: max-content;
+            margin: auto auto;
+        }
+        /*这个样式必须用“.”*/
+        .newElement
+        {
+            font-family: 华文琥珀;
+            font-size: large;
+            text-align: center;
+            max-width: max-content;
+            margin: auto auto;
+        }
+        .arrayMap
+        {
+            font-family: 华文新魏;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+<div id="Content"></div>
+<script type="text/babel">
+    var t=document.getElementById("titleName");
+    var ArrayColor=new Array("#ed0617","#ed9b13","#ede500","#0aed0b","#00fffd","#2e15d1","#a413ff");
+    var ArrayTitle=new Array("标题1","标题2","标题3","标题4","标题5","标题6","标题7","标题8","标题9","标题10");
+    var inputStyle=
+        {
+            fontStyle:"oblique",
+            fontWeight:"lighter"
+        }
+    function creatDOM()
+    {
+        document.open();
+        var temWRIT=document.createDocumentFragment();
+        for(var i=0;i<ArrayTitle.length;i++)
+        {
+            document.write("<p style='max-width: max-content;margin: auto '>"+ArrayTitle[i]+"</p>")
+        }
+        for(var i=0;i<ArrayColor.length;i++)
+        {
+            document.write("<p style='max-width: max-content;margin: auto'>"+ArrayColor[i]+"</p>")
+        }
+        document.write("<p></p>&nbsp;<p style='max-width: max-content;margin: auto'>" +
+            "<button style='font: large 黑体' onclick='javascript: history.go(0);'>返回</button></p>")
+        document.close()
+    }
+    function createdEle()
+    {
+        var cdf=document.createDocumentFragment();//创建文件碎片节点
+        for(var i=0;i<ArrayColor.length;i++)
+        {
+            var ce=document.createElement("ul");//创建节点元素
+            ce.className='newElement';//添加css样式
+            var cText=document.createTextNode(ArrayColor[i]);//创建节点文本
+            //将新节点添加到页面上
+            ce.appendChild(cText);
+            cdf.appendChild(ce);
+        }
+        //document.getElementById("Content").appendChild(cdf);//appenChild方法将创建的节点添加到当前节点末尾
+        document.body.appendChild(cdf);//appenChild方法将创建的节点添加到当前节点末尾
+    }
+    window.onload=createdEle();
+    class WebSite extends React.Component {
+        constructor() {
+            super();
+        }
+        render() {
+            return (
+                <div>
+                    <Change />
+                    <Link />
+                    <AddBt />
+                    <ul>{listItems}</ul>
+                    <ArrayItem inputArray={ArrayTitle}/>
+                </div>
+            );
+        }
+    }
+    class Change extends React.Component
+    {
+        constructor()
+        {
+            super();
+        }
+        componentDidMount()
+        {
+            this.timerID=setInterval(
+                ()=>this.turncolors(),
+                1000
+            );
+            this.timerID=setInterval(
+                ()=>this.dynamicTitle(),
+                1000
+            );
+        }
+        componentWillUnmunt()
+        {
+            clearInterval(this.timerID);
+        }
+        turncolors()
+        {
+            var n=parseInt(Math.random()*10);
+            var m=parseInt(Math.random()*10);
+            if(n===(ArrayColor.length-1))
+                n=0;
+            if(m==(ArrayColor.length-1))
+                m=1;
+            document.bgColor=ArrayColor[n];//设置页面背景颜色
+            document.fgColor=ArrayColor[m];//设置页面文字颜色
+        }
+        dynamicTitle()
+        {
+            var n2=parseInt(Math.random()*10);
+            document.title=ArrayTitle[n2];
+        }
+        render() {
+            return (
+                <div>
+                    <a href="https://reactjs.org/" target="_blank">React官网</a>
+                    <p>ReactState与背景颜色的改变</p>
+                    <p>该文档的创建日期：{document.fileCreatedDate}</p>
+                    <p>该文档最后修改时间：{document.lastModified}</p>
+                    <p>document对象当前状态:&nbsp;{document.readyState}</p>
+                </div>
+            );
+        }
+    }
+    class Link extends React.Component
+    {
+        constructor()
+        {
+            super();
+            this.clearIP=this.clearIP.bind(this);
+            this.setURL=this.setURL.bind(this);
+            this.txtfocus=this.txtfocus.bind(this);
+            this.txtblur=this.txtblur.bind(this);
+        }
+        clearIP()
+        {
+            document.getElementById("titleName").value="";
+        }
+        setURL()
+        {
+            var t= document.getElementById("titleName").value;
+            var URL=window.location.href;
+            console.log(URL);
+            window.open(t);//打开新窗口
+        }
+        txtfocus()
+        {
+            var e=document.getElementById("titleName");
+            e.style.backgroundColor="#CAFFE8";
+        }
+        txtblur() {
+            var e=document.getElementById("titleName");
+            e.style.backgroundColor="#fdffff";
+        }
+        render() {
+            return (
+                <div>
+                    <p>
+                        输入要跳转的页面的URL：
+                        <input id="titleName" type="text" defaultValue="有效的URL地址" style={inputStyle} onFocus={this.txtfocus}onBlur={this.txtblur}/>
+                        &nbsp;
+                        <button onClick={this.setURL}>跳转</button>
+                        &nbsp;
+                        <button onClick={this.clearIP}>清空输入框</button>
+                    </p>
+                    <p style={inputStyle}>
+                        {document.URL}
+                    </p>
+                </div>
+            );
+        }
+    }
+    class AddBt extends React.Component
+    {
+        constructor()
+        {
+            super();
+            this.addBUTTON=this.addBUTTON.bind(this);
+        }
+        addBUTTON()
+        {
+            var bt=document.createElement("input");
+            bt.value="打开新文档";
+            bt.type="button";
+            bt.onclick=function(){creatDOM();}//注意动态添加的按钮函数的绑定方式
+            document.getElementById("Content").appendChild(bt);
+        }
+        render()
+        {
+            return(
+                <div>
+                    <p></p>
+                    <button onClick={this.addBUTTON}>添加一个新按钮</button>&nbsp;
+                </div>
+            )
+        }
+    }
+    const listItems=ArrayTitle.map((ArrayTitle)=>
+        <li>{ArrayTitle}</li>
+    );
+    function ArrayItem (props)
+    {
+        const tempArray=props.inputArray;
+        // 一个元素的 key 最好是这个元素在列表中拥有的一个独一无二的字符串
+        const listItems=tempArray.map((transArray)=>
+            <ul key={transArray.toString()}>
+                {transArray}
+            </ul>
+        )
+            return(
+                <ul className="arrayMap">{listItems}</ul>
+            )
+    }
+    ReactDOM.render(
+        <WebSite />,
+        document.getElementById('Content')
+    );
+    document.linkColor="#24dd0a";//未单击链接颜色
+    document.alinkColor="#000000";//链接获得焦点时颜色
+    document.vlinkColor="#caffe8";//单击过的链接颜色
+</script>
+</body>
+</html>
