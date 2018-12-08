@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>DOM对象</title>
+    <style>
+        /*做ie兼容，ie对margin的理解不同*/
+        #domDiv
+        {
+           width: 100%;
+            text-align: center;
+        }
+        #domDiv_contBox
+        {
+            max-width: 400px;
+            text-align: left;
+            margin: auto auto;
+        }
+        #insertWay
+        {
+            width: 100%;
+           text-align: center;
+        }
+        #insertWay_contBox
+        {
+            max-width: 350px;
+            text-align: left;
+            margin: auto auto;
+            border: #96aed1 2px solid;
+        }
+        #copyN
+        {
+            width: 100%;
+            text-align: center;
+        }
+        #copyN_contBox
+        {
+            max-width: 400px;
+            text-align: left;
+            margin: auto auto;
+            font-family: 华文新魏;
+            font-size: medium;
+        }
+        #copyTo
+        {
+            width: 100%;
+            text-align: center;
+        }
+        #copyTo_contBox
+        {
+            max-width: 400px;
+            text-align: left;
+            margin: auto auto;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
+</head>
+<body>
+<div id="domDiv">
+    <div id="domDiv_contBox">
+        <!--节点名称：<input type="text" id="na"/><br/>
+        节点类型：<input type="text" id="ty"/><br/>
+        节点的值：<input type="text" id="va"/><br/>
+        <button onclick="txt=nodeS(txt,'parent');">父节点</button>
+        &nbsp;
+        <button onclick="txt=nodeS(txt,'firstChild')">第一个子节点</button>
+        &nbsp;
+        <button onclick="txt=nodeS(txt,'lastChild')">最后一个子节点</button>
+        <button onclick="txt=nodeS(txt,'previousSibling')">前一个兄弟节点</button>
+        &nbsp;
+        <button onclick="txt=nodeS(txt,'nextSibling')">最后一个兄弟节点</button>
+        &nbsp;
+        <button onclick="txt=document.documentElement;txtUpdate(txt);">返回根节点</button>-->
+    <form name="frm" action="#" method="get">
+        <table>
+            <tr>
+                <td>
+                    节点名称：
+                    <!--<input type="text" id="na"/>-->
+                </td>
+                <td id="na"></td>
+            </tr>
+            <tr>
+                <td>
+                    节点类型：
+                    <!--<input type="text" id="ty"/>-->
+                </td>
+                <td id="ty"></td>
+            </tr>
+            <tr>
+                <td>
+                    节点的值：
+                    <!--<input type="text" id="va"/>-->
+                </td>
+                <td id="va"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="txt=nodeS(txt,'parent');">父节点</button>
+                    &nbsp;
+                    <button onclick="txt=nodeS(txt,'firstChild')">第一个子节点</button>
+                    &nbsp;
+                    <button onclick="txt=nodeS(txt,'lastChild')">最后一个子节点</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="txt=nodeS(txt,'previousSibling')">前一个兄弟节点</button>
+                    &nbsp;
+                    <button onclick="txt=nodeS(txt,'nextSibling')">最后一个兄弟节点</button>
+                    &nbsp;
+                    <button onclick="txt=document.documentElement;txtUpdate(txt);">返回根节点</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    </div>
+</div>
+<div id="insertWay">
+    <div id="insertWay_contBox">
+    <h3 id="h">在上面插入节点</h3>
+        <h4 id="h2">替换此节点</h4>
+    节点类型：
+    <input type="text" id="typeInset" value="如：h1"><br>
+    插入内容：
+    <input type="text" id="txtInset">
+    <button onclick="insetNode()">插入</button>
+        &nbsp;<button onclick="repN()">替换</button>
+        <ul></ul>
+        <input type="button" value="显示对话框" onclick="rdl_doClick()">
+        &nbsp;<input type="button" value="打开一个新窗口" onclick="newOpen()">
+        &nbsp;<input type="button" value="关闭窗口" onclick="newClose()">
+    </div>
+</div>
+<p></p>
+<div id="copyN">
+    <div id="copyN_contBox">
+        <div class="ui styled fluid accordion" id="needCopy">
+            <div class="title"><i class="dropdown icon"></i> React特点 </div>
+            <!--若想让内容默认展开定义class为active title和active content-->
+            <div class="content">
+                <p>Virtual DOM；函数式编程；JSX；单向数据流</p>
+            </div>
+            <div class="title"><i class="dropdown icon"></i> JSX</div>
+            <div class="content">
+                <p>JSX 是一个看起来很像 XML 的 JavaScript 语法扩展。</p>
+                <p>我们不需要一定使用 JSX，但它有以下优点：</p>
+                <li>JSX 执行更快，因为它在编译为 JavaScript 代码后进行了优化。</li>
+                <li>它是类型安全的，在编译过程中就能发现错误。</li>
+                <li>使用 JSX 编写模板更加简单快速。</li>
+            </div>
+            <div class="title"><i class="dropdown icon"></i> React 组件</div>
+            <div class="content">
+                <p>React 把组件看成是一个状态机（State Machines）。通过与用户的交互，实现不同状态，然后渲染 UI，让用户界面和数据保持一致。
+                </p>
+                <p>
+                    React 里，只需更新组件的 state，然后根据新的 state 重新渲染用户界面（不要操作 DOM）。
+                </p>
+                <hr/>
+                   注意： 原生 HTML 元素名以小写字母开头，而自定义的 React 类名以大写字母开头
+            </div>
+        </div>
+        <p></p>
+        <i class="clone icon" onclick="CopyRow(false)"title="复制" style="cursor: pointer"></i>&nbsp;
+        <i class="clone icon" onclick="CopyRow(true)"title="深度复制" style="cursor: pointer;font-size: larger"></i>
+        &nbsp;<i class="trash icon" onclick="delNode()"title="删除" style="cursor: pointer"></i>
+        <!--深度复制，即能复制在编译器中折叠内容-->
+</div>
+</div>
+<p></p>
+<div id="copyTo">
+    <div id="copyTo_contBox"></div>
+</div>
+<script>
+    //获取节点信息
+    var txt=document.documentElement;//返回html dom中的root 节点 即<html>
+    txtUpdate(txt);
+    function txtUpdate(txt)
+    {
+        /*window.document.frm.na.value=txt.nodeName;
+        window.document.frm.ty.value=txt.nodeType;
+        window.document.frm.va.value=txt.nodeValue;*/
+        document.getElementById("na").innerHTML=txt.nodeName;
+        document.getElementById("ty").innerHTML=txt.nodeType;
+        document.getElementById("va").innerHTML=txt.nodeValue;
+    }
+    function nodeS(txt,nodeName)
+    {
+        switch (nodeName)
+        {
+            case "previousSibling":
+                if(txt.previousSibling)
+                {
+                    txt=txt.previousSibling;
+                }
+                else
+                    alert("无兄弟节点");
+                break;
+            case "nextSibing":
+                if(txt.nextSibling)
+                {
+                    txt=txt.nextSibling;
+                }
+                else
+                    alert("无兄弟节点");
+                break;
+            case "parent":
+                if(txt.parentNode)
+                {
+                    txt=txt.parentNode;
+                }
+                else
+                    alert("无父节点");
+                break;
+            case "firtChild":
+                if(txt.hasChildNodes())
+                {
+                    txt=txt.firstChild;
+                }
+                else
+                    alert("无子节点")
+                break;
+            case "lastChild":
+                if(txt.hasChildNodes())
+                {
+                    txt=txt.lastChild;
+                }
+                else
+                    alert("无子节点")
+                break;
+        }
+        this.txtUpdate(txt);
+        return txt;
+    }
+    function ar()
+    {
+        var n=document.documentElement;
+        alert(n.length);
+    }
+</script>
+<script>
+    //插入节点
+    function insetNode()
+    {
+        var ty=document.getElementById("typeInset").value;
+        var newItem=document.createElement(ty);
+        var str=document.getElementById("txtInset").value;
+        var textnode=document.createTextNode(str);
+        newItem.appendChild(textnode);
+        var list=document.getElementById("h");
+        //注意下面这两种方法的插入顺序不同，类型也不同
+        if (list.parentNode)
+        list.parentNode.insertBefore(newItem,list);
+        //list.insertBefore(newItem,list.childNodes[0]);
+    }
+    //替换节点
+    function repN()
+    {
+        var rep=document.getElementById("h2");
+        if(rep)
+        {
+            var ty=document.getElementById("typeInset").value;
+            var newNode=document.createElement(ty);
+            newNode.id="h2";
+            var str=document.getElementById("txtInset").value;
+            var newText=document.createTextNode(str);
+            newNode.appendChild(newText);
+            rep.parentNode.replaceChild(newNode,rep);//注意替换方式，是替换子节点所以要写指向父节点
+        }
+    }
+    //提示对话框
+    function rdl_doClick()
+    {
+        var onMessage=document.all("typeInset");
+        onMessage.value=window.prompt(onMessage.value,"li");//第一个参数是展示内容，第二个参数是默认输入框值
+    }
+    //复制节点
+    function CopyRow(bl)
+    {
+        var cDiv=document.getElementById("needCopy");
+        var newDiv=cDiv.cloneNode(bl);
+        var b=document.createElement("br");
+        copyTo_contBox.appendChild(newDiv);
+        copyTo_contBox.appendChild(b);
+    }
+    //删除节点
+    function delNode()
+    {
+        var deleteN=document.getElementById("needCopy");
+        /*if(deleteN.hasChildNodes())
+        {
+            deleteN.removeChild(deleteN.lastChild);//删除子节点
+        }*/
+        deleteN.parentNode.removeChild(deleteN);
+    }
+</script>
+<script>
+    var pp;
+    function newOpen()
+    {
+        pp=window.open("https://cn.bing.com","newWindow","width=800,height=500,toolbar=1,location=1,directories=yes");
+        //第一个参数是url,第二个参数是对象名称，第三个是对话框的一些属性设置
+    }
+    function newClose()
+    {
+
+        alert("关闭新窗口！");
+        pp.close();
+    }
+    /*window.resizeTo(300,300);
+    window.moveTo(0,0);
+    var aa=0;
+    var bb=0;
+    var a=0;
+    var b=0;
+    inter=setInterval("go()",1);
+    function go()
+    {
+        try
+        {
+            if(aa==0)
+                a+=2;
+            if(a>screen.availWidth-300)
+                aa=1;
+            if(aa==1)
+                a-=2;
+            if(a==0)
+                aa=0;
+            if(bb=0)
+                b+=2;
+            if(b>screen.availHeight-300)
+                bb=1;
+            if(bb==1)
+                b-=2;
+            if(b==0)
+                bb==0;
+            window.moveTo(a,b);
+        }
+        catch (e) {}
+    }*/
+    </script>
+</body>
+<script>
+    //semantic初始化折叠控件
+    $('.ui.accordion')
+        .accordion()
+    ;
+</script>
+</html>
