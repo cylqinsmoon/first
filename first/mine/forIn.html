@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for…in循环语句</title>
+    <script>
+        //创建对象
+        var OBJ={
+            user:"清平乐",
+            QQ:"274488937",
+            grade:"56",
+            years:"22"
+        }
+        function prtDoc() {
+            var newWindow=window.open();
+            var obj1=document;
+            var obj2="";
+            for (var obj3 in obj1){
+                obj2=obj3+"="+obj1[obj3];
+                newWindow.document.write(obj2+"<br>");
+            }
+        }
+        function prtObj() {
+            var obj2="";
+            for (var inf in OBJ){
+                obj2+=inf+" : "+OBJ[inf]+";";
+            }
+            alert(obj2);
+        }
+        function WITH() {
+            with (OBJ){
+                alert(user+" : "+QQ+"；等级："+grade+"；年龄："+years);
+            }
+        }
+    </script>
+    <style>
+        #tip{
+            width: 20%;
+            height: 10%;
+            left: 40%;
+            padding: 0 0px;
+            top: 35%;
+            position: absolute;
+            text-align: center;
+            line-height: 50px;
+            font-family: 华文中宋;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div id="tip">
+    <a href="javascript:prtDoc()" >打印document<br></a>
+    <a href="javascript:prtObj()">输出自定义对象<br></a>
+    <a href="javascript:WITH()">with方法的简写<br></a>
+</div>
+</body>
+</html>
