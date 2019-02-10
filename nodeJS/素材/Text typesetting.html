@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古诗网</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
+     <script src="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script type="text/babel">
+        //获取浏览器宽度
+        var brWid=document.body.clientWidth;
+        //字体和图标大小
+        var fotsize;
+        var tbsize;
+        //四个图标路径
+        const zsIcpath="zhupic.png";
+        const zsIcpath2="zhupic2.png";
+        const sxIcpath="shangpic.png";
+        const sxIcpath2="shangpic2.png";
+        //通过点击不同按钮执行不同事件
+        var isZsinner=false;
+        var isSxinner=false;
+        //主要区别桌面端和移动端
+        if(brWid>720) {
+            fotsize = "23px";
+            tbsize=30;
+        }
+        else {
+            fotsize = "15px";
+            tbsize=20;
+        }
+        class FtContent extends React.Component
+        {
+            constructor()
+            {
+                super();
+                this.state={
+                    ftS:fotsize,
+                    tbS:tbsize,
+                    isZs:"false",
+                    isSx:"false"
+                }
+                this.resize=this.resize.bind(this);
+                this.changeCont=this.changeCont.bind(this);
+            }
+            componentDidMount()
+            {
+                //注意React中windows事件的绑定方式
+                window.addEventListener('resize', this.resize);
+            }
+            //根据尺寸变化改变图标和字体大小
+            resize()
+            {
+                brWid=document.body.clientWidth;
+                if(brWid>720) {
+                    this.setState({
+                        ftS:"23px",
+                        tbS:30
+                    })
+                }
+                else
+                {
+                    this.setState({
+                        ftS:"15px",
+                        tbS:20
+                    })
+                }
+            }
+            componentWillUnmount()
+            {
+                window.removeEventListener('resize',this.resize);
+
+            }
+            //两个图标的函数
+            changeCont(element)
+            {
+                var e;
+                //检索发生事件的文档元素
+                if (element == null)
+                    e = event.target;
+                else
+                    e = element.target;
+                //根据按钮的ID分别执行代码
+                var bt=e.id;
+                if(bt=="zs")
+                {
+                    //注意这个isZs和isSx不是马上产生变化的，故不能在整个函数内部作为判断依据
+                    //但这个state是动态改变的，可以影响到react渲染出来的DOM
+                    this.setState(prevState => ({
+                        isZs: !prevState.isZs
+                    }));
+                    isZsinner=!isZsinner;
+                }
+                else if(bt=="sx")
+                {
+                    this.setState(prevState => ({
+                        isSx: !prevState.isSx
+                    }));
+                    isSxinner=!isSxinner;
+                }
+                //读取XML
+                var xmlhttp;
+                if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else {// code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("poem").innerHTML = xmlhttp.responseText;
+                    }
+                }
+                //依据判断添加用四个XML替换原来内容
+                if(isZsinner&&!isSxinner)
+                {
+                    xmlhttp.open("GET",'zhu.xml',true);
+                }
+                else if(!isZsinner&&!isSxinner)
+                {
+                    xmlhttp.open("GET",'cont.xml',true);
+                }
+                else if(!isZsinner&&isSxinner)
+                {
+                    xmlhttp.open("GET",'shang.xml',true);
+                }
+                else if(isSxinner&&isZsinner)
+                {
+                    xmlhttp.open("GET",'zhushang.xml',true);
+                }
+                xmlhttp.send();
+            }
+            render()
+            {
+                return(
+                    <div className="container-fluid">
+                        <br/>
+                        <div className="row">
+                            <div className="col-md-4 col-lg-4 ">
+                                <img src="http://localhost:4616/" className="img-fluid" alt="古诗"/>
+                            </div>
+                            <div className="col-md-4 col-lg-4 col-9">
+                                <h2 style={{color:"#0100b6",fontFamily:"华文隶书"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    还自广陵
+                                </h2>
+                                <footer className="blockquote-footer" style={{fontFamily:"仿宋",fontSize:"18px"}}>
+                                    宋代：秦观
+                                </footer>
+                                <blockquote className="blockquote" style={{fontSize:this.state.ftS,fontFamily:"华文新魏"}}>
+                                    <div id="poem">
+                                    <p>天寒水鸟自相依，十百为群戏落晖。</p>
+                                    <p>过尽行人都不起，忽闻水响一齐飞。</p>
+                                    </div>
+                                </blockquote>
+                            </div>
+                            <div className="col-lg-4 col-md-4 col-3">
+                                <img src={this.state.isZs?zsIcpath:zsIcpath2} id="zs" width={this.state.tbS} style={{cursor: "pointer"}} onClick={this.changeCont}/>
+                                <img src={this.state.isSx?sxIcpath:sxIcpath2} id="sx" width={this.state.tbS}style={{cursor: "pointer"}} onClick={this.changeCont}/>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render
+        (
+            <FtContent/>,
+            document.getElementById("example")
+        )
+    </script>
+</head>
+<body>
+<div id="example"></div>
+</body>
+</html>
