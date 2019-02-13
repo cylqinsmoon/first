@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The use of AJAX</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script type="text/babel">
+        class Content extends React.Component
+        {
+            constructor()
+            {
+                super();
+                this.loadXMLDoc=this.loadXMLDoc.bind(this);
+            }
+            loadXMLDoc()
+            {
+                var xmlhttp;
+                if(window.XMLHttpRequest)
+                {
+                    //IE7+,Firefox,Chrome,Opera,Safari浏览器执行代码
+                    xmlhttp=new XMLHttpRequest();
+                }
+                else
+                {
+                    //IE6,IE5 浏览器执行代码
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange=function ()
+                {
+                    if(xmlhttp.readyState==4&&xmlhttp.status==200)
+                    {
+                        document.getElementById("updateAJAX").innerText=xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open("GET","素材/ajax_info.txt",true);
+                xmlhttp.send();
+            }
+            render()
+            {
+                return(
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-12 col-md-12 col-lg-10 col-xl-10 offset-lg-2  offset-xl-2">
+                                <div id="updateAJAX"><h1 className="display-1">使用AJAX修改该文本内容</h1></div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-12 col-md-5 col-lg-5 col-xl-5 offset-lg-5 offset-md-5 offset-xl-5">
+                                <button type="button" className="btn btn-primary" onClick={this.loadXMLDoc}>修改内容</button>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Content/>,
+            document.getElementById("myDIV")
+        )
+    </script>
+</head>
+<body>
+<div id="myDIV"></div>
+</body>
+</html>
