@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天气数据</title>
+    <link href="https://cdn.bootcss.com/openlayers/4.6.5/ol.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/openlayers/4.6.5/ol.js"></script>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
+    <style>
+        html,body
+        {
+            height: 100%;
+            width: 100%;
+        }
+        #mapDiv
+        {
+            width: 100%;
+            height: 100%;
+            margin: auto auto;
+        }
+        #bt
+        {
+            left: 5%;
+            top: 2%;
+            position: absolute;
+        }
+    </style>
+    <script src="素材/台湾城市.js"></script>
+</head>
+<body>
+<div id="mapDiv"></div>
+<div id="bt"></div>
+</div>
+<script>
+    /*********************设置数据源**************************/
+        //Open Street Map地图层
+    var OpenStreetMapLayer=new ol.layer.Tile({
+            source:new  ol.source.OSM()
+        });
+    //Bing地图层
+    var bingMapLayer=new ol.layer.Tile({
+        source:new ol.source.BingMaps({
+            key:'AiLyQv0tf6jsZKC5myLMUdyoi3vB2-uvNStF223Y41rJ_Gk-Me-lGPXELuDsfv-H',
+            imagerySet:'Road'
+        })
+    });
+    //Stamen地图层
+    //Stamen watercolor图层
+    var stamenLayer_water=new ol.layer.Tile({
+        source:new ol.source.Stamen({
+            layer:'watercolor'
+        })
+    })
+    //Stamen Toner图层
+    var stamenLayer_Toner=new ol.layer.Tile({
+        source:new ol.source.Stamen({
+            layer:'toner'
+        })
+    })
+    //Stamen Terrain图层
+    var stamenLayer_Terrain=new ol.layer.Tile({
+        source:new ol.source.Stamen({
+            layer:'terrain'
+        })
+    })
+    //创建百度地图
+    //自定义分辨率和瓦片坐标系
+    var resolutions=[];
+    var maxZoom=18;
+    //计算百度地图使用的分辨率
+    for(var i=0;i<=maxZoom;i++){
+        resolutions[i]=Math.pow(2,maxZoom -i);
+    }
+    var tilegrid=new ol.tilegrid.TileGrid({
+        origin:[0,0], //设置原点坐标
+        resolutions:resolutions //设置分辨率
+    });
+    //创建百度地图的数据源
+    var baiduSource = new ol.source.TileImage({
+        projection: 'EPSG:3857',
+        tileGrid: tilegrid,
+        tileUrlFunction: function (tileCoord, pixelRatio, proj) {
+            var z = tileCoord[0];
+            var x = tileCoord[1];
+            var y = tileCoord[2];
+            // 百度瓦片服务url将负数使用M前缀来标识
+            if (x < 0) {
+                x = 'M' + (-x);
+            }
+            if (y < 0) {
+                y = 'M' + (-y);
+            }
+            return "http://online0.map.bdimg.com/onlinelabel/?qt=tile&x=" + x + "&y=" + y + "&z=" + z + "&styles=pl&udt=20151021&scaler=1&p=1";
+        }
+    });
+    //百度地图图层
+    var  baiduMapLayer=new ol.layer.Tile({
+        source:baiduSource
+    });
+    //设置天地图底图数据源
+    var tiandituSource=new ol.source.XYZ({
+        url: "http://t4.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}"
+    });
+    //定义图层
+    var tiandituLayer=new ol.layer.Tile({
+        title:"天地图",
+        source:tiandituSource
+    });
+    //标注图层
+    var tiandituMark=new ol.source.XYZ({
+        url: 'http://t3.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}'
+    })
+    var tiandituMarkLayer=new ol.layer.Tile({
+        title:"标注图层",
+        source:tiandituMark,
+    });
+    //创建高德地图图层
+    var gaodeMapLayer = new ol.layer.Tile({
+        source: new ol.source.XYZ({
+            url: 'http://wprd0{1-4}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&style=7&x={x}&y={y}&z={z}'
+        })
+    });
+</script>
+<script>
+    /*********************加载地图**************************/
+    var map=new ol.Map({
+        layers:[
+            gaodeMapLayer
+        ],
+        view:new ol.View({
+            center: [121, 23.6],
+            zoom:8,
+            projection:'EPSG:4326'//这种定义投影方式才能全局改变投影，而不是只改变中心点投影
+        }),
+        target:'mapDiv'
+    });
+</script>
+<script type="text/babel">
+    /*********************导航栏按钮**************************/
+    var selectStyle=
+        {
+            fontFamily:"微软雅黑"
+        }
+    var worldIcon=
+        {
+            fontSize:"x-large",
+            color:"#0000ff",
+            cursor:"pointer"
+        }
+    class WebTotal extends React.Component {
+        constructor() {
+            super();
+        }
+        render() {
+            return (
+                <div>
+                    <Navigation/>
+                </div>
+            );
+        }
+    }
+    class Navigation extends React.Component
+    {
+        constructor()
+        {
+            super();
+            this.fitDiv=this.fitDiv.bind(this);
+            this.switchMaps=this.switchMaps.bind(this);
+        }
+        //最大限度显示指定区域
+        fitDiv()
+        {
+            map.getView().fit([119.82,21.83,122.23,25.43],map.getSize())
+        }
+        switchMaps(e)
+        {
+            let newMap=e.target.value;
+            switch (newMap) {
+                case "tdt":
+                    map.removeLayer(map.getLayers().item(0));
+                    map.addLayer(tiandituLayer);
+                    map.addLayer(tiandituMarkLayer);
+                    break;
+                case "osm":
+                    map.removeLayer(map.getLayers().item(0));
+                    map.addLayer(OpenStreetMapLayer);
+                    break;
+                case "bm":
+                    map.removeLayer(map.getLayers().item(0));
+                    map.addLayer(bingMapLayer);
+                    break;
+                case "swm":
+                    map.removeLayer(map.getLayers().item(0));
+                    map.addLayer(stamenLayer_water);
+                    break;
+                case "stom":
+                    map.removeLayer(map.getLayers().item(0));
+                    map.addLayer(stamenLayer_Toner);
+                    break;
+                case "stem":
+                    map.removeLayer(map.getLayers().item(0));
+                    map.addLayer(stamenLayer_Terrain);
+                    break;
+                case "bdm":
+                    map.removeLayer(map.getLayers().item(0));
+                    map.addLayer(baiduMapLayer);
+                    break;
+                case "gdm":
+                    map.removeLayer(map.getLayers().item(0));
+                    map.addLayer(gaodeMapLayer);
+                    break;
+            }
+            //map.addLayer(vectorLayer);
+        }
+        render(){
+            return(
+                <div>
+                    <i className="world icon" onClick={this.fitDiv} style={worldIcon}title="缩放至台湾"></i>
+                    &nbsp;
+                    <select onChange={this.switchMaps} style={selectStyle}>
+                        {/*<option value="tdt">天地图</option>*/}
+                        <option value="gdm">高德地图</option>
+                        <option value="osm">OpenStreetMap地图</option>
+                        <option value="bm">Bing地图</option>
+                        <option value="swm">Stamen_watercolor地图</option>
+                        <option value="stom">Stamen_Toner地图</option>
+                        <option value="stem">Stamen_Terrain地图</option>
+                        <option value="bdm">百度地图</option>
+                    </select>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(
+        <WebTotal/>,
+        document.getElementById('bt')
+    )
+</script>
+<script>
+    //最大程度显示指定范围大小
+    function fitDiv2()
+    {
+        //记得加上投影坐标转换
+        map.getView().fit([119.82,21.83,122.23,25.43],map.getSize())
+    }
+    window.onresize=function () {
+        fitDiv2();
+    }
+</script>
+<script>
+    /*********************设置图标及弹框**************************/
+        //设置矢量层装载图标
+        //创建空的矢量容器
+    var vectorSource = new ol.source.Vector({});
+    var X=new Array();
+    var Y=new Array();
+    //导入地理位置信息
+    for (var i = 0; i <data.length; i++)
+    {
+        X[i]=data[i].lon;
+        Y[i]=data[i].lat;
+    }
+    var iconStyle=new Array();
+    var iconFeature=new Array();
+    //定义图标样式
+    for (var i = 0; i <X.length; i++)
+    {
+        iconStyle[i]=new ol.style.Style({
+            image: new ol.style.Icon({
+                src: '素材/tianqi'+i+'.png',
+                scale: map.getView().getZoom() / 50
+            }),
+            text: new ol.style.Text({
+                font: '15px 华文隶书',
+                text: data[i].Tg,
+                backgroundFill:new ol.style.Fill({
+                    color:'rgba(0, 0, 255, 1)'
+                }),
+                fill:new ol.style.Fill({
+                   color:"white"
+                }),
+                offsetX:35
+            })
+        });
+    }
+    for (var i = 0; i <X.length; i++)
+    {
+        //以Feature方式装载图标
+        iconFeature[i] = new ol.Feature({
+            geometry: new ol.geom.Point([X[i], Y[i]], "XY"),
+            name: "my Icon",
+        });
+        //添加样式至Feature
+        iconFeature[i].setStyle(iconStyle[i]);
+        iconFeature[i].setId(data[i].name);
+        //将图标特性添加进矢量中
+        vectorSource.addFeature(iconFeature[i]);
+    }
+    //创建图标层
+    var vectorLayer = new ol.layer.Vector({
+        source: vectorSource
+    });
+    map.addLayer(vectorLayer);
+    // 图标跟随缩放变化
+    map.getView().on('change:resolution', function()
+    {
+        for (var i = 0; i <X.length; i++) {
+            var style = iconStyle[i];
+            style.getImage().setScale(this.getZoom() / 45);
+            style.getText().setScale(this.getZoom()/9);
+            iconFeature[i].setStyle(style);
+        }
+    })
+</script>
+</body>
+</html>
