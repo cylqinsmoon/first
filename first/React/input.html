@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <style>
+        #title {
+            font-family: 仿宋;
+            font-weight: bold;
+        }
+
+        #inpST {
+            height: 70%;
+            width: 20%;
+        }
+
+        .display {
+            border: #96aed1 solid 2px;
+            background-color: rgba(255, 102, 102, 0.3);
+            font-family: 新宋体;
+            font-size: large;
+            width: 80%;
+        }
+
+        #divShowResult {
+            border: #ff8e0c solid 2px;
+            background-color: rgb(133, 226, 255);
+            font-family: 新宋体;
+            font-size: large;
+            width: 100%;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+<div id="content"></div>
+<script type="text/jsx">
+    function Display(props) {
+        var r = props.r;
+        var nir = props.nir;
+        var cal1 = nir - r;
+        var cal2 = parseFloat(nir) + parseFloat(r);//一定要加上parseFloat，否则+会变成字符串连接
+        var result1 = cal1 / cal2;//ndvi
+        var result2 = ((2 * nir + 1 - Math.sqrt(Math.pow((2 * nir + 1), 2) - 8 * (nir - r)))) / 2;//msavi
+        var result3 = (-8 * Math.pow(10, -6)) * (Math.pow(937.36 * Math.pow(result1, 1.8918)), 2)
+            + 0.0113 * (937.36 * Math.pow(result1, 1.8918) + 0.9407) * (-8069.8 * Math.pow(result2, 2) + 10292 * result2 - 1542.9)
+        return <div>ndvi值为：{result1}<br/>msavi值为：{result2}<br/>npp的值为：{result3}</div>
+    }
+
+    var brWid = document.body.clientWidth;
+    var fotsize;
+    if (brWid > 540)
+        fotsize = "3vw"
+    else
+        fotsize = "9vw"
+    const abrSt =
+        {
+            textDecoration: "underline"
+        }
+
+    class ForNpp extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state =
+                {
+                    r: '',
+                    nir: '',
+                    ftS: fotsize
+
+                };
+            this.handleChange = this.handleChange.bind(this);
+            this.txtfocus = this.txtfocus.bind(this);
+            this.txtblur = this.txtblur.bind(this);
+            this.result = this.result.bind(this);
+            this.resize = this.resize.bind(this);
+        }
+
+        componentDidMount() {
+            //注意React中windows事件的绑定方式
+            window.addEventListener('resize', this.resize);
+        }
+
+        resize() {
+            brWid = document.body.clientWidth;
+            if (brWid > 540) {
+                this.setState({
+                    ftS: "3vw"
+                })
+            }
+            else {
+                this.setState({
+                    ftS: "8vw"
+                })
+            }
+        }
+
+        componentWillUnmount() {
+            window.removeEventListener('resize', this.resize);
+        }
+
+        handleChange(event) {
+            const target = event.target;
+            const value = target.value;
+            const name = target.name;
+            this.setState({
+                [name]: value
+            });
+        }
+
+        txtfocus(e) {
+            const target = e.target;
+            target.style.backgroundColor = "#CAFFE8";
+        }
+
+        txtblur(e) {
+            const target = e.target;
+            target.style.backgroundColor = "#fdffff";
+        }
+
+        result() {
+            var r = this.state.r;
+            var nir = this.state.nir;
+            var cal1 = nir - r;
+            var cal2 = parseFloat(nir) + parseFloat(r);//一定要加上parseFloat，否则+会变成字符串连接
+            var result1 = cal1 / cal2;//ndvi
+            var result2 = ((2 * nir + 1 - Math.sqrt(Math.pow((2 * nir + 1), 2) - 8 * (nir - r)))) / 2;//msavi
+            var result3 = (-8 * Math.pow(10, -6)) * (Math.pow(937.36 * Math.pow(result1, 1.8918)), 2)
+                + 0.0113 * (937.36 * Math.pow(result1, 1.8918) + 0.9407) * (-8069.8 * Math.pow(result2, 2) + 10292 * result2 - 1542.9)
+            $("#divShowResult").append("ndvi值为：" + result1 + "<br/>" + "msavi值为：" + result2 + "<br/>" + "npp的值为：" + result3);
+        }
+
+        render() {
+            const r = this.state.r;
+            const nir = this.state.nir;
+            return (
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-12  col-sm-4 col-md-4 col-lg-4  offset-sm-5 offset-md-5 offset-lg-5">
+                            <div id="title" style={{fontSize: this.state.ftS}}>
+                                NPP计算
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-12  col-sm-8 col-md-4 col-lg-4  offset-sm-4 offset-md-5 offset-lg-5">
+                            请输入<abbr title="620-760纳米" style={abrSt}>红光波段</abbr>数值：
+                            <input id="inpST" name="r" value={r} type="number" onChange={this.handleChange}
+                                   onFocus={this.txtfocus} onBlur={this.txtblur}/>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-12  col-sm-4 col-md-4 col-lg-4  offset-sm-5 offset-md-5 offset-lg-5">
+                            请输入<abbr title="780-3000纳米" style={abrSt}>近红外波段</abbr>数值：
+                            <input id="inpST" name="nir" value={nir} type="number"
+                                   onChange={this.handleChange} onFocus={this.txtfocus} onBlur={this.txtblur}/>
+                        </div>
+                    </div>
+                    {/*<input type="button" value="展示结果" onClick={this.result}/>*/}
+                    <div className="row">
+                        <div className="col-12  col-sm-4 col-md-4 col-lg-4  offset-sm-5 offset-md-5 offset-lg-5">
+                            结果：
+                        </div>
+                    </div>
+                    {/*<div id="divShowResult"></div>*/}
+                    {
+                        <div className="row">
+                            <div className="col-12  col-sm-4 col-md-4 col-lg-4  offset-sm-5 offset-md-5 offset-lg-5">
+                                <div className="display">
+                                    <Display r={r} nir={nir}/>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(
+        <ForNpp/>,
+        document.getElementById("content")
+    );
+</script>
+</body>
+</html>
