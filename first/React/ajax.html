@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>React中使用AJAX</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+
+<script type="text/babel">
+    class UserGist extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {username: '', lastGistUrl: ''};
+        }
+
+
+        componentDidMount() {
+            this.serverRequest = $.get(this.props.source, function (result) {
+                var lastGist = result[0];
+                this.setState({
+                    username: lastGist.owner.login,
+                    lastGistUrl: lastGist.html_url
+                });
+            }.bind(this));
+        }
+
+        componentWillUnmount() {
+            this.serverRequest.abort();
+        }
+
+        render() {
+            return (
+                <div>
+                    {this.state.username} 用户最新的 Gist 共享地址：
+                    <a href={this.state.lastGistUrl}>{this.state.lastGistUrl}</a>
+                </div>
+            );
+        }
+    }
+    ReactDOM.render(
+        <UserGist source="https://api.github.com/users/cylqinsmoon/gists" />,
+        document.getElementById('example')
+    );
+</script>
+<!--<script type="text/babel">
+    class Nav extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                arr: {}
+            };
+            this.get = this.get.bind(this);
+        }
+        get(){
+            fetch('data/word.txt').then((res)=>{
+                if(res.ok){
+                    res.text().then((data)=>{
+                        console.log(data);
+                    })
+                }
+            }).catch((res)=>{
+                console.log(res.status);
+            });
+        }
+        render(){
+            return <div>
+                <input type="button" value="按钮" onClick={this.get}/>
+            </div>
+        }
+    }
+
+
+    ReactDOM.render(
+        <Nav/>,
+        document.querySelector('example')
+    );
+</script>-->
+</body>
+</html>
