@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>表单与事件</title>
+    <script src="https://cdn.staticfile.org/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.staticfile.org/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.22.1/babel.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
+    <style>
+        #example
+        {
+            max-width: 100%;
+            text-align: center;
+        }
+        #example_contBox
+        {
+            max-width: 24%;
+            text-align: left;
+            margin: auto auto;
+        }
+        #addNumbers
+        {
+            color: #008aff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="example">
+    <div id="example_contBox"></div>
+</div>
+<script type="text/babel">
+
+   /* var Content = React.createClass({
+        render: function() {
+            return  <div>
+                <input type="text" value={this.props.myDataProp} onChange={this.props.updateStateProp} />
+                <h4>{this.props.myDataProp}</h4>
+            </div>;
+        }
+    });*/
+    class Content extends React.Component
+    {
+        render()
+        {
+            return(
+                <div>
+                    <input type="text" value={this.props.myDataProp} onChange={this.props.updateStateProp} />
+                    <h4>{this.props.myDataProp}</h4>
+                </div>
+            )
+        }
+    }
+    /*var HelloMessage = React.createClass({
+        getInitialState: function() {
+            return {value: 'Hello Runoob!'};
+        },
+        handleChange: function(event) {
+            this.setState({value: event.target.value});
+        },
+        render: function() {
+            var value = this.state.value;
+            return <div>
+                <Content myDataProp = {value}
+                         updateStateProp = {this.handleChange}></Content>
+            </div>;
+        }
+    });*/
+    class Reservation extends  React.Component
+    {
+        constructor()
+        {
+            super();
+            this.state={
+                numbers:1,
+                isGo:false
+            }
+            this.handleFormChange=this.handleFormChange.bind(this);
+        }
+        handleFormChange(event)
+        {
+            const target=event.target;
+            const name=target.id;
+            var numbers=this.state.numbers;
+            console.log(name);
+           if(name=="addNumbers")
+           {
+               numbers++;
+               this.setState({
+                   isGo:false
+               })
+           }
+           else if(name=="isGoing")
+           {
+               if(numbers>0)
+               {
+                   numbers--;
+                   alert("欢迎下次光临！")
+                   this.setState({
+                       isGo:false
+                   })
+               }
+               else
+               {
+                   alert("您已经退出了，不需要重复退出！")
+                   this.setState({
+                       isGo:true
+                   })
+               }
+           }
+           else if(name=="numberOfGuests")
+           {
+               numbers=target.value;
+               if(numbers>0)
+               {
+                   this.setState({
+                       isGo:false
+                   })
+               }
+               else
+               {
+                   this.setState({
+                       isGo:true
+                   })
+               }
+           }
+            this.setState({
+                numbers:numbers
+            })
+        }
+        render()
+        {
+            var numbers=this.state.numbers;
+            var isgo=this.state.isGo;
+            return(
+                <form>
+                    <label>
+                        是否离开:
+                        <input
+                            id="isGoing"
+                            type="checkbox"
+                            checked={isgo}
+                            onChange={this.handleFormChange} />
+                    </label>
+                    <p></p>
+                    <label>
+                        <i  id="addNumbers"
+                            onClick= {this.handleFormChange}
+                           className="add user icon"/>&nbsp;
+                        访客数:&nbsp;
+                        <input
+                            id="numberOfGuests"
+                            type="number"
+                            value={numbers}
+                            onChange={this.handleFormChange} />
+                    </label>
+                </form>
+            )
+        }
+    }
+    class HelloMessage extends React.Component
+    {
+        constructor()
+        {
+            super();
+            this.state={
+                value:"Hello Runoob!"
+            }
+            this.handleChange=this.handleChange.bind(this);
+        }
+        handleChange(event)
+        {
+            const target=event.target;
+            const value=target.value;
+            this.setState({
+                value:value
+            })
+        }
+        render()
+        {
+            var value = this.state.value;
+            return(
+                <div>
+                    <Content myDataProp = {value} updateStateProp = {this.handleChange}/>
+                    <Reservation/>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(
+        <HelloMessage />,
+        document.getElementById('example_contBox')
+    );
+</script>
+</body>
+</html>
